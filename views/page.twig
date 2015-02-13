@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Style Sheet Links -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.7.2.min.js"></script>
+
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="css/styles.less">
+    <script src="js/less.min.js" type="text/javascript"></script>
+    <script src="js/functions.js"></script>
+    <script src="canvas.js"></script>
+    <script src="js/kinetic.js"></script>
+
+    {% block links %}
+    {% endblock links %}
+
+    {% block type %}
+    {% endblock type %}
+
+    {% block css %}
+    {% endblock css %}
+
+    <title>BuildAX</title>
+</head>
+
+<body lang="en-GB">
+<div class="container" id ="content">
+    {% block navigation %}
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'navbar.twig' %}
+            </div>
+        </div>
+    {% endblock navigation %}
+
+
+    {% block pageheader %}
+        <header class="row">
+
+            <div class="col-md-12">
+                {% block header %}
+                {% endblock header %}
+            </div>
+        </header>
+    {% endblock pageheader %}
+
+    {% block main %}
+
+
+    {% endblock main %}
+
+    {% block pagefooter %}
+        {% block footer %}
+
+    {#{% include'footer.twig' %}#}
+        {% endblock footer %}
+    {% endblock pagefooter %}
+
+</div>
+</body>
+</html>

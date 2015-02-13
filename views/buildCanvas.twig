@@ -1,0 +1,101 @@
+{% extends 'page.twig' %}
+
+{% block links %}
+    {# <link> for non-css and non-type things#}
+{% endblock links %}
+
+{% block type %}
+    {# <link> for webfonts #}
+{% endblock type %}
+
+{% block css %}
+    {# <link> for any other CSS files you need #}
+{% endblock css %}
+
+{% block scripts %}
+    {# <script src=""></script> for any other JS files you need #}
+
+{% endblock scripts %}
+
+{% block setup %}
+    {# Any javascript you need that is NOT run on load goes in this block. NB you don't need <script></script> tags  here #}
+{% endblock setup %}
+
+{% block onload %}
+    {# Any javascript you need that MUST run on load goes in this block. NB you don't need <script></script> tags  here #}
+
+
+{% endblock onload %}
+
+{% block header %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="header">
+                <h1>Build your house</h1>
+            </div>
+        </div>
+    </div>
+{% endblock header %}
+
+{% block main %}
+<div class="well well-sm">
+    <div class="row" id="rooms">
+
+        <div class="col-md-2">
+            <div class="img-content">
+                <img class="room" id="bedroom" src="images/bedroom.jpg" draggable="true" ondragstart="drag(event)">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="box" draggable="true" ondragstart="drag(event)">
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="box" draggable="true" ondragstart="drag(event)">
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="box" draggable="true" ondragstart="drag(event)">
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="box" draggable="true" ondragstart="drag(event)">
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="box"draggable="true" ondragstart="drag(event)">
+
+            </div>
+        </div>
+    </div>
+</div>
+   {#<div class="well well-sm">
+        <p>Place your rooms here...</p>
+        <div class="row" id="canvas">
+            <div class="col-md-12">
+                <div  id="myCanvas" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                </div>
+                <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+        </div>
+    </div>#}
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+    <div id="container" >
+    <canvas id="canvas1" width="1138" height="400px" ondrop="drop(event)" ondragover="allowDrop(event)">
+        This text is displayed if your browser does not support HTML5 Canvas.
+    </canvas>
+    </div>
+
+    <script src="js/canvas.js"></script>
+
+{% endblock main %}
+

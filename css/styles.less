@@ -1,0 +1,227 @@
+/* ------------------------------Imports --------------------------------*/
+@import "elements.less";
+
+/* -----------------------------Typography -----------------------------*/
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       "Trebuchet MS", Helvetica, sans-serif;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@heading-size: 35px;
+@nav-text: 20px;
+@font-size-base:          14px;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
+@headings-color:          inherit;
+
+/*----------------------------- Variables -----------------------------*/
+@border-color: darken(#E7E7E7, 20%);
+@gray-darker:  lighten(#000, 13.5%); // #222
+@gray-dark:    lighten(#000, 20%);   // #333
+@gray:         lighten(#000, 33.5%); // #555
+@gray-light:   lighten(#000, 46.7%); // #777
+@gray-lighter: lighten(#000, 80.5%);
+@brand-primary: lighten(#2d63f7, 0%); // #337ab7
+@green: #5cb85c;
+@light-green: lighten(#5cb85c, 20%);
+@dark-green: darken(#5cb85c, 20%);
+@brand-info:    lighten(#5bc0de, 10%);
+@brand-warning: #f0ad4e;
+@brand-danger:  #d9534f;
+@text-color: #000000;
+
+/*----------------------------- Mixins -----------------------------*/
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+
+/*-------------------------- Global CSS -------------------------------*/
+#content {
+  .bordered(@border-color, @border-color, @border-color, @border-color);
+  min-height: 400px;
+  position:relative;
+  .border-radius(5px);
+  background-color: #ffffff;
+  .inner-shadow(1px, 1px, 3px, 0.5);
+  font-family: @font-family-serif;
+  padding-right: 10px;
+}
+
+html,
+body {
+  /*.gradient(@gray-light, @gray-light, @gray-lighter);*/
+  .gradient(@brand-primary, @brand-primary, #FFFFFF);
+  margin:0;
+  padding:0;
+  height: auto;
+}
+
+.header {
+  margin-top: -20px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+h1 {
+  font-family: @font-family-serif;
+  font-size: @heading-size;
+  color: @text-color;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+/* ----------- CSS for footer if included -------------------------
+#footer {
+  .gradient(@brand-primary, @brand-primary, #FFFFFF);
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+  width: 97%;
+  margin-top: inherit;
+  height: 30px;
+  .border-radius(5px);
+  padding-top: 8px;
+  border: .75px solid;
+  margin-bottom: 5px;
+  .bordered(@border-color,@border-color,@border-color,@border-color);
+}
+*/
+
+#jumbotron {
+  .gradient(left, @light-green, @dark-green);
+  width: 100%;
+  min-height: 100%;
+}
+
+/*----------------------- Navbar ---------------------------*/
+#navbar {
+  padding-left: 10px;
+  .gradient(@brand-primary, @brand-primary, #FFFFFF);
+  .bordered(@border-color,@border-color,@border-color,@border-color);
+  margin-top: 8px;
+  color: @text-color;
+  font-family: @font-family-serif;
+  font-size: @nav-text;
+  .box-shadow(0 1px 2px #999);
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: @text-color;
+}
+
+.navbar-default .navbar-brand {
+  color: @text-color;
+  font-size: 30px;
+}
+
+
+
+/* -------------------------------------------------
+------------- Build your House page -----------------
+--------------------------------------------------*/
+
+
+.box {
+  border: 2px solid;
+  padding: 10px 40px;
+  width: 100px;
+  height: 75px;
+  resize: both;
+  overflow: auto;
+  .border-radius(2.5px);
+  max-width: 160px;
+  max-height: 125px;
+}
+
+#canvas {
+  margin-top: 15px;
+  margin-left: -10px;
+  margin-bottom: 15px;
+}
+
+#myCanvas {
+  width: 100%;
+  height: 400px;
+  /*.bordered(@gray-darker,@gray-darker,@gray-darker,@gray-darker);*/
+  .border-radius(2.5px);
+  border: dashed;
+}
+
+.well  {
+  font-size: @nav-text;
+}
+
+.img-content {
+  width: 100px;
+  height: 100px;
+  resize:both;
+  overflow:hidden;
+  background-color:#ffff99;
+  padding:5px;
+}
+
+
+
+#canvas1 {
+  border: 1px dashed;
+}
+
+/*-------------- Build using Kinetic------------------------*/
+#container {
+  border:solid 1px #ccc;
+  width:auto;
+  height:auto;
+
+}
+.wrapper {
+  width: 300px;
+}
+#accordion-resizer {
+  width:200px;
+  height:500px;
+  margin-top:10px;
+}
+.room {
+  width:150px;
+  height: 75px;
+  border:4px solid black;
+  .border-radius(4px);
+  margin-top: -30px;
+  position:relative;
+  z-index:1;
+  background-color:ivory;
+  padding: 5px;
+  min-height: 30px;
+  min-width: 90px;
+  margin-bottom: 5px;
+}
+.imag {
+  width:60px;
+  height:40px;
+  position:relative;
+  z-index:2;
+}
+.well {
+  margin-bottom: 5px;
+}
+#save {
+  width: 100px;
+}
