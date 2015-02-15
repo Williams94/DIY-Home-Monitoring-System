@@ -1,7 +1,11 @@
 //<![CDATA[
 $(window).load(function(){
 
-    var $width = document.getElementById('content').clientWidth - 27;
+    $( "#accordion" ).accordion({
+        heightStyle: "fill"
+    });
+
+    var $width = document.getElementById('container').clientWidth;
    // var $height = document.getElementById('content').clientHeight - 14;
     var $height = 400;
 
@@ -22,9 +26,9 @@ $(window).load(function(){
     });
 
 // grid data
-    var CELL_SIZE = 40,
-        w = 110,
-        h = 60,
+    var CELL_SIZE = 30,
+        w = $width/10,
+        h = $height/10,
         W = w * CELL_SIZE,
         H = h * CELL_SIZE;
 
@@ -148,7 +152,7 @@ $(window).load(function(){
         // get the drop payload (here the payload is the image)
         var element = ui.draggable;
         var data = element.data("url");
-        var theImage = element.data("image");
+        var theImage = document.getElementById('bedroom');
 
         // create a new Kinetic.Image at the drop point
         // be sure to adjust for any border width (here border==1)
@@ -189,15 +193,21 @@ $(window).load(function(){
             });
             $clone.css({top: y, left: x, position:'absolute'});
         }
+
+
         group.add(image);
         layer.add(group);
         stage.add(layer);
 
+
+}
+
     var myDataUrl;
     document.getElementById('save').addEventListener('click', function(){
-          //place outside of scope of function for saving
+        //place outside of scope of function for saving
         stage.toDataURL({
             callback: function(dataUrl){
+
                 // do something with the data url
                 // like window.open(dataUrl);
                 // you can do anything do anything really, like
@@ -208,13 +218,64 @@ $(window).load(function(){
 
                 //(new Image()).src = "myDataUrl"; //or the shortcut way
 
-                window.open(myDataUrl);
+                window.open(dataUrl);
             },
             mimeType: 'image/jpeg',
             quality: 0.5
         });
     }, false);
-}
+
+    // tooltip
+    var tooltip = new Kinetic.Label({
+        x: 170,
+        y: 75,
+        opacity: 0.75
+    });
+
+    tooltip.add(new Kinetic.Tag({
+        fill: 'black',
+        pointerDirection: 'down',
+        pointerWidth: 10,
+        pointerHeight: 10,
+        lineJoin: 'round',
+        shadowColor: 'black',
+        shadowBlur: 10,
+        shadowOffset: {x:10,y:20},
+        shadowOpacity: 0.5
+    }));
+
+    tooltip.add(new Kinetic.Text({
+        text: 'Tooltip pointing down',
+        fontFamily: 'Calibri',
+        fontSize: 18,
+        padding: 5,
+        fill: 'white'
+    }));
+
+    // simple label
+    var simpleLabel = new Kinetic.Label({
+        x: 350,
+        y: 50,
+        opacity: 0.75
+    });
+
+    simpleLabel.add(new Kinetic.Tag({
+        fill: 'yellow'
+    }));
+
+    simpleLabel.add(new Kinetic.Text({
+        text: 'Simple label',
+        fontFamily: 'Calibri',
+        fontSize: 18,
+        padding: 5,
+        fill: 'black'
+    }));
+
+    // add the labels to layer
+    layer.add(simpleLabel);
+
+    // add the layer to the stage
+    stage.add(layer);
 
 
 });//]]>
