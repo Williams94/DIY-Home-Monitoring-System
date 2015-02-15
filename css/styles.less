@@ -55,22 +55,25 @@
 /*-------------------------- Global CSS -------------------------------*/
 #content {
   .bordered(@border-color, @border-color, @border-color, @border-color);
-  min-height: 400px;
+  min-height: 100%;
   position:relative;
   .border-radius(5px);
   background-color: #ffffff;
-  .inner-shadow(1px, 1px, 3px, 0.5);
+  //.inner-shadow(1px, 1px, 3px, 0.5);
   font-family: @font-family-serif;
   padding-right: 10px;
-}
 
+}
+.container {
+  height: 100%;
+}
 html,
 body {
   /*.gradient(@gray-light, @gray-light, @gray-lighter);*/
   .gradient(@brand-primary, @brand-primary, #FFFFFF);
   margin:0;
   padding:0;
-  height: auto;
+  height: 100%;
 }
 
 .header {
@@ -188,7 +191,7 @@ h1 {
 #container {
   border:solid 1px #ccc;
   width:auto;
-  height:auto;
+  height:100%;
 
 }
 .wrapper {
@@ -196,22 +199,22 @@ h1 {
 }
 #accordion-resizer {
   width:200px;
-  height:500px;
+  height:400px;
   margin-top:10px;
 }
 .room {
-  width:150px;
-  height: 75px;
-  border:4px solid black;
   .border-radius(4px);
-  margin-top: -30px;
-  position:relative;
-  z-index:1;
-  background-color:ivory;
   padding: 5px;
   min-height: 30px;
   min-width: 90px;
   margin-bottom: 5px;
+  width:100px;
+  border:4px solid black;
+  height:60px;
+  position:relative;
+  z-index:1;
+  background-color:ivory;
+  resize: both;
 }
 .imag {
   width:60px;

@@ -12,60 +12,45 @@
     <title></title>
 </head>
 <body>
-
-<div class="well well-sm">
-    <div class="row" id="rooms">
-
-        <div class="col-md-2">
-            <br>
-            <div class="room">
-                <p>Kitchen</p>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <br>
-            <div class="room">
-                <p>Lounge</p>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <br>
-            <div class="room">
-                <p>Bathroom</p>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <br>
-            <div class="room">
-                <p>Utilities</p>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <br>
-            <div class="room">
-                <p>Hallway</p>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <br>
-            <div class="room">
-                <p>Bedroom</p>
-            </div>
-        </div>
-       {# <h3>Sensors</h3>
-        <div>
-            <div>
-                <img id="house_1" class="imag" src="images/sensor2.png">
-            </div>
-
-        </div>#}
-        </div>
-</div>
 <div class="row">
-    <div class="col-md-12">
-        <div id="container">
+    <div class="col-md-4">
+        <div id="accordion-resizer">
+            <div id="accordion" class="wrapper">
 
+                <h3>Rooms</h3>
+                <div>
+                    <p>
+                        List of rooms
+                    <div class="room" id="bedroom"></div>
+                    <div class="room"></div>
+                    <div class="room"></div>
+                    </p>
+                </div>
+
+
+                <h3>Equipments</h3>
+                <div>
+                    <p>
+                        List of equimpents' icons
+                    </p>
+                    <div>
+                        <img id="house_1" class="imag" src="http://sandbox.kendsnyder.com/IM/square-stripped.png">
+                        <img id="house_2" class="imag" width=32 height=32 src="http://t3.gstatic.com/images?q=tbn:ANd9GcRBYkAv40Eeaxlze2dqhayvKUeoUH6l_jYNLlsfjzJu0Uy9ucjcNA">
+                    </div>
+
+                </div>
+
+                <h3>Sensors</h3>
+                <div>
+                    <p>
+                        List of sensors' icons
+                    </p>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="col-md-8">
+        <div id="container"></div>
     </div>
 </div>
 
