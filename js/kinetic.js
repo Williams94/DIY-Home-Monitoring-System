@@ -152,8 +152,8 @@ $(window).load(function(){
         // get the drop payload (here the payload is the image)
         var element = ui.draggable;
         var data = element.data("url");
-        var theImage = document.getElementById('bedroom');
-
+        //var theImage = document.getElementById('bedroom');
+		var theImage = element.data("image");
         // create a new Kinetic.Image at the drop point
         // be sure to adjust for any border width (here border==1)
         var image = new Kinetic.Image({
