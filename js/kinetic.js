@@ -1,15 +1,26 @@
 //<![CDATA[
 $(window).load(function(){
 
-    $( "#accordion" ).accordion({
-        heightStyle: "fill"
-    });
-
+    // JqueryUI accordion
+    if (document.documentElement.clientWidth < 500) { // For mobile devices
+        $( "#accordion" ).accordion({
+            heightStyle: "auto",
+            collapsible:    true,
+            active: false
+        });
+    } else {
+        $( "#accordion" ).accordion({
+            heightStyle: "auto",
+            collapsible:    true
+        });
+    }
+    
+    // Sets the width and height of the canvas
     var $width = document.getElementById('container').clientWidth;
-   // var $height = document.getElementById('content').clientHeight - 14;
+    // var $height = document.getElementById('content').clientHeight - 14;
     var $height = 400;
 
-// get a reference to the house icon
+    // get a reference to the house icon
     var $house = $(".imag");
 
 // get the offset position of the kinetic container
