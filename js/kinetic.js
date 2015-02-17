@@ -22,6 +22,7 @@ $(window).load(function(){
 
     // get a reference to the house icon
     var $house = $(".imag");
+    var json;
 
 // get the offset position of the kinetic container
     var $stageContainer = $("#container");
@@ -154,7 +155,7 @@ $(window).load(function(){
         drop: dragDrop
     });
 
-// handle a drop into the Konva container
+    // handle a drop into the Konva container
     function dragDrop(e, ui) {
         // get the drop point
         var x = parseInt(ui.offset.left - offsetX, 10);
@@ -206,6 +207,7 @@ $(window).load(function(){
         }
 
 
+        json = stage.toJSON();
         group.add(image);
         layer.add(group);
         stage.add(layer);
@@ -213,16 +215,27 @@ $(window).load(function(){
 
 
 
+
+    var text = new Konva.Text({
+        fill : 'black'
+    });
+    layer.add(text);
+
+    stage.on("drop", function(e){
+
+
+    });
+
     // Saves Konva stage to a JSON string
     document.getElementById('save').addEventListener('click', function(){
 
-        var json = stage.toJSON();
+
         console.log(json);
 
 
     }, false);
 
-    // tooltip
+    // ------------------------Konva tooltips and labels -----------------------------
     var tooltip = new Konva.Label({
         x: 170,
         y: 75,
