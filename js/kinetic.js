@@ -14,7 +14,7 @@ $(window).load(function(){
             collapsible:    true
         });
     }
-    
+
     // Sets the width and height of the canvas
     var $width = document.getElementById('container').clientWidth;
     // var $height = document.getElementById('content').clientHeight - 14;
@@ -30,7 +30,7 @@ $(window).load(function(){
     var offsetY = stageOffset.top;
 
 // create the Kinetic.Stage and layer
-    var stage = new Kinetic.Stage({
+    var stage = new Konva.Stage({
         container: 'container',
         width: $width,
         height: $height
@@ -45,7 +45,7 @@ $(window).load(function(){
 
 // function of drawing the grid in the container
     var make_grid = function(layer) {
-        var r = new Kinetic.Rect({
+        var r = new Konva.Rect({
             x: 0,
             y: 0,
             width: W,
@@ -55,7 +55,7 @@ $(window).load(function(){
         layer.add(r);
         for (i = 0; i < w + 1; i++) {
             var I = i * CELL_SIZE;
-            var l = new Kinetic.Line({
+            var l = new Konva.Line({
                 stroke: "grey",
                 strokeWidth: 0.5,
                 points: [I, 0, I, H]
@@ -65,7 +65,7 @@ $(window).load(function(){
 
         for (j = 0; j < h + 1; j++) {
             var J = j * CELL_SIZE;
-            var l2 = new Kinetic.Line({
+            var l2 = new Konva.Line({
                 stroke: "grey",
                 strokeWidth: 0.5,
                 points: [0, J, W, J]
@@ -75,9 +75,9 @@ $(window).load(function(){
         return r;
     };
 
-    var layer = new Kinetic.Layer();
-//var chambre = new Kinetic.Group();
-    var rect = new Kinetic.Rect({
+    var layer = new Konva.Layer();
+//var chambre = new Konva.Group();
+    var rect = new Konva.Rect({
         x: 0,
         y: 0,
         width: CELL_SIZE,
@@ -113,10 +113,10 @@ $(window).load(function(){
 
 
 //create a group
-    var group = new Kinetic.Group({
+    var group = new Konva.Group({
         draggable: true //make group draggable
     });
-    var rec = new Kinetic.Rect({
+    var rec = new Konva.Rect({
         x: 10,
         y: 330,
         width: $width,
@@ -149,12 +149,12 @@ $(window).load(function(){
         snapTolerance: 15
     });
 
-// make the Kinetic Container a dropzone
+// make the Konva Container a dropzone
     $stageContainer.droppable({
         drop: dragDrop
     });
 
-// handle a drop into the Kinetic container
+// handle a drop into the Konva container
     function dragDrop(e, ui) {
         // get the drop point
         var x = parseInt(ui.offset.left - offsetX, 10);
@@ -165,9 +165,9 @@ $(window).load(function(){
         var data = element.data("url");
         //var theImage = document.getElementById('bedroom');
 		var theImage = element.data("image");
-        // create a new Kinetic.Image at the drop point
+        // create a new Konva.Image at the drop point
         // be sure to adjust for any border width (here border==1)
-        var image = new Kinetic.Image({
+        var image = new Konva.Image({
             name: data,
             x: x,
             y: y,
@@ -237,13 +237,13 @@ $(window).load(function(){
     }, false);
 
     // tooltip
-    var tooltip = new Kinetic.Label({
+    var tooltip = new Konva.Label({
         x: 170,
         y: 75,
         opacity: 0.75
     });
 
-    tooltip.add(new Kinetic.Tag({
+    tooltip.add(new Konva.Tag({
         fill: 'black',
         pointerDirection: 'down',
         pointerWidth: 10,
@@ -255,7 +255,7 @@ $(window).load(function(){
         shadowOpacity: 0.5
     }));
 
-    tooltip.add(new Kinetic.Text({
+    tooltip.add(new Konva.Text({
         text: 'Tooltip pointing down',
         fontFamily: 'Calibri',
         fontSize: 18,
@@ -264,17 +264,17 @@ $(window).load(function(){
     }));
 
     // simple label
-    var simpleLabel = new Kinetic.Label({
+    var simpleLabel = new Konva.Label({
         x: 350,
         y: 50,
         opacity: 0.75
     });
 
-    simpleLabel.add(new Kinetic.Tag({
+    simpleLabel.add(new Konva.Tag({
         fill: 'yellow'
     }));
 
-    simpleLabel.add(new Kinetic.Text({
+    simpleLabel.add(new Konva.Text({
         text: 'Simple label',
         fontFamily: 'Calibri',
         fontSize: 18,
