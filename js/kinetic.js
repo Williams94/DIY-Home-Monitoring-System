@@ -209,31 +209,17 @@ $(window).load(function(){
         group.add(image);
         layer.add(group);
         stage.add(layer);
-
-
 }
 
-    var myDataUrl;
+
+
+    // Saves Konva stage to a JSON string
     document.getElementById('save').addEventListener('click', function(){
-        //place outside of scope of function for saving
-        stage.toDataURL({
-            callback: function(dataUrl){
 
-                // do something with the data url
-                // like window.open(dataUrl);
-                // you can do anything do anything really, like
-                myDataUrl = dataUrl;
+        var json = stage.toJSON();
+        console.log(json);
 
-                var img= new Image(); //or document.createElement('img');
-                img.src= myDataUrl;
 
-                //(new Image()).src = "myDataUrl"; //or the shortcut way
-
-                window.open(dataUrl);
-            },
-            mimeType: 'image/jpeg',
-            quality: 0.5
-        });
     }, false);
 
     // tooltip
