@@ -207,10 +207,12 @@ $(window).load(function(){
         }
 
 
-        json = stage.toJSON();
+
         group.add(image);
         layer.add(group);
         stage.add(layer);
+        json = stage.toJSON();
+        console.log (json);
 }
 
 
@@ -226,13 +228,37 @@ $(window).load(function(){
 
     });
 
+
+
+
     // Saves Konva stage to a JSON string
     document.getElementById('save').addEventListener('click', function(){
+        // Using the core $.ajax() method
+        $.ajax({
 
+            url: "build.php",
 
-        console.log(json);
+            data: JSON.stringify(json),
 
+            type: "POST",
 
+            contentType: 'application/json; charset=UTF-8',
+
+            success: function( json ) {
+                alert( "The request is was successful!" );
+            },
+
+            error: function( xhr, status, errorThrown ) {
+                alert( "Sorry, there was a problem!" );
+                console.log( "Error: " + errorThrown );
+                console.log( "Status: " + status );
+                console.dir( xhr );
+            },
+
+            complete: function( xhr, status ) {
+
+            }
+        });
     }, false);
 
     // ------------------------Konva tooltips and labels -----------------------------

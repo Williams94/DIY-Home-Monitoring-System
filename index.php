@@ -16,3 +16,16 @@ $loader = new Twig_Loader_Filesystem('views');
 $twig = new Twig_Environment($loader);
 
 echo $twig->render('home.twig', array('text' => 'Hello world!'));
+
+
+
+/*
+if(isset($_POST)){
+    $json = $_POST['json'];
+
+
+    //3. Generate Database Insert Query
+    //4. Run mysql Query to insert
+
+    // Return appropriate return back to Javascript code - Success or Failure
+}*/
