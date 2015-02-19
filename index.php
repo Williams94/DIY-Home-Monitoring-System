@@ -13,26 +13,8 @@ $loader = new Twig_Loader_Filesystem('views');
 $twig = new Twig_Environment($loader);
 
 
-$maps =  R::getCol( 'SELECT id FROM maps' );
+$maps =  R::findAll('maps');
+
+//var_dump($maps);
 
 echo $twig->render('home.twig', array($maps));
-
-/*
-$action=$_POST["action"];
-
-if($action=="getMap"){
-
-
-
-    $json = R::load( 'map', $id );
-
-    $map = R::dispense('maps');
-
-    $map->json = $json;
-
-    $id = R::store($map);
-
-    echo $json;
-
-}
-*/

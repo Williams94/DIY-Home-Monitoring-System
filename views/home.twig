@@ -35,24 +35,13 @@
 {% endblock header %}
 
 {% block main %}
+    <button type="button" class="btn btn-primary btn-lg" id="load">Save</button>
     <div class="row">
         <div class="col-md-12">
-            <div class="form-group">
-                <label>Select list (select one):
-                    <select class="form-control">
-                        {% for id in 0..10 %}
-                            <option>{{ id }}</option>
-                        {% endfor %}
-                    </select>
-                </label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div id="">
+
+            <div id="map">
 
             </div>
-
         </div>
     </div>
 {% endblock main %}
