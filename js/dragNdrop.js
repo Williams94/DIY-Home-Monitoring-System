@@ -211,8 +211,7 @@ $(window).load(function(){
         group.add(image);
         layer.add(group);
         stage.add(layer);
-        json = stage.toJSON();
-        console.log (json);
+       //console.log (JSON.stringify(json));
 }
 
 
@@ -233,18 +232,22 @@ $(window).load(function(){
 
     // Saves Konva stage to a JSON string
     document.getElementById('save').addEventListener('click', function(){
+        json = stage.toJSON();
+
+
         // Using the core $.ajax() method
         $.ajax({
 
-            url: "build.php",
-
-            data: JSON.stringify(json),
+            url: "php/save.php",
 
             type: "POST",
 
-            contentType: 'application/json; charset=UTF-8',
+            data: {data:json},
+
+            // contentType: "application/json",
 
             success: function( json ) {
+                console.log(json);
                 alert( "The request is was successful!" );
             },
 
