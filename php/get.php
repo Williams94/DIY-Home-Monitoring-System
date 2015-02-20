@@ -11,7 +11,7 @@ $action = $_POST["action"];
 
 if($action=="getmap"){
 
-    $id = 19;
+    $id = 23;
 
     $json = R::load( 'maps', $id );
 
