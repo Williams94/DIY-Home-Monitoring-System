@@ -8,10 +8,14 @@
 
 include '../dblogin.php';
 
-    $json = $_POST['data'];
+$json = $_POST['data'];
 
-    $map = R::dispense('maps');
+$map = R::dispense('maps');
 
-    $map->json = $json;
+$map->json = $json;
 
-    $id = R::store($map);
+$id = R::store($map);
+
+session_start();
+
+$_SESSION['mapid'] = $id;

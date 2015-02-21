@@ -303,7 +303,7 @@ $(window).load(function(){
     }));
 
     simpleLabel.add(new Konva.Text({
-        text: 'Simple label',
+        text: 'Simple Label',
         fontFamily: 'Calibri',
         fontSize: 18,
         padding: 5,

@@ -15,7 +15,7 @@
    // var offsetX = stageOffset.left;
     //var offsetY = stageOffset.top;
 
-$('#load').click(function() {
+// $('#load').click(function() {
 
     $.ajax({
         url: "php/get.php",
@@ -48,7 +48,7 @@ $('#load').click(function() {
             //console.log(json);
         }
     });
-});
+// });
 
     // create the Kinetic.Stage and layer
    // var stage = Konva.Node.create(json, 'map');

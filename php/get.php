@@ -11,7 +11,9 @@ $action = $_POST["action"];
 
 if($action=="getmap"){
 
-    $id = 23;
+    session_start();
+
+    $id = $_SESSION['mapid'];
 
     $json = R::load( 'maps', $id );
 
