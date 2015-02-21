@@ -20,6 +20,8 @@ $(window).load(function() {
 // var $height = document.getElementById('content').clientHeight - 14;
     var $height = 400;
 
+    var json;
+
 // get the offset position of the Konva container
     var $stageContainer = $("#container");
     var stageOffset = $stageContainer.offset();
@@ -27,33 +29,33 @@ $(window).load(function() {
     var offsetY = stageOffset.top;
 
 //initialize counter for image IDs
-    var imageCount = -1;
+    var imageCount = 0;
 
-    var imageSrc = [
-        "images/sensor.jpeg",
-        "images/sensor2.jpeg"
-    ];
+    //select images from toolbar
+    var imageList = document.getElementsByClassName("imageToDrag");
 
-//loop through imageSrc list
-    for (var i = 0; i < imageSrc.length; i++) {
+//loop through imageList
+    for (var i = 0; i  < imageList.length; i++) {
         //use a closure to keep references clean
-        (function () {
+        (function() {
             var $house, image;
-            $house = $("#sensor" + i);
+            $house = $(imageList[i]);
             $house.hide();
             image = new Image();
             image.onload = function () {
                 $house.show();
             };
-            image.src = imageSrc[i];
+            //read source image from given img tag
+            image.src = imageList[i].getAttribute("src");
             // start loading the image used in the draggable toolbar element
             // this image will be used in a new Konva.Image
             // make the toolbar image draggable
             $house.draggable({helper: 'clone'});
-            $house.data("url", "house.png"); // key-value pair
+            $house.data("url", "sensor"+i); // key-value pair
             $house.data("width", 60); // key-value pair
             $house.data("height", 40); // key-value pair
             $house.data("image", image); // key-value pair
+            $house.data("class", "sensor"+i);
         })();
     }
 // create the Konva.Stage and layer
@@ -83,6 +85,7 @@ $(window).load(function() {
         var theImage = element.data("image");
         var imgWidth = element.data("width");
         var imgHeight = element.data("height");
+        var type = element.data("class");
 
         // create a new Konva.Image at the drop point
         // be sure to adjust for any border width (here border==1)
@@ -107,11 +110,55 @@ $(window).load(function() {
 
 
     $("#save").click( function(){
-        
+        json = stage.toJSON();
+
+
+        // Using the core $.ajax() method
+        $.ajax({
+
+            url: "php/save.php",
+
+            type: "POST",
+
+            data: {data:json},
+
+            // contentType: "application/json",
+
+            success: function( json ) {
+                console.log(json);
+                alert( "The request is was successful!" );
+            },
+
+            error: function( xhr, status, errorThrown ) {
+                alert( "Sorry, there was a problem!" );
+                console.log( "Error: " + errorThrown );
+                console.log( "Status: " + status );
+                console.dir( xhr );
+            },
+
+            complete: function( xhr, status ) {
+
+            }
+        });
 
 
 
 
     });
+
+
+    var rect = new Konva.Rect({
+        x: 50,
+        y: 50,
+        width: 100,
+        height: 50,
+        fill: 'green',
+        stroke: 'black',
+        strokeWidth: 4
+    });
+    // add the shape to the layer
+    layer.add(rect);
+    // add the layer to the stage
+    stage.add(layer);
 
 });

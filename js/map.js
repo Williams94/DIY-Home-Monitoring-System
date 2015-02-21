@@ -1,7 +1,7 @@
 /**
  * Created by Ross on 17/02/2015.
  */
-
+$(window).load(function() {
     // Sets the width and height of the canvas
     var $width = document.getElementById('map').clientWidth;
     // var $height = document.getElementById('content').clientHeight - 14;
@@ -45,11 +45,25 @@
 
             var stage = Konva.Node.create(json, 'map');
 
-            //console.log(json);
+
+            var imageObj = new Image();
+
+            imageObj.onload = function() {
+                stage.get('#image0')[0].image(imageObj);
+
+                stage.draw();
+            };
+            imageObj.src = 'images/sensor.jpeg';
+
+            var layer = stage.getLayers();
+
+            console.log(layer);
+
+            
+
+
+            stage.draw();
         }
     });
-// });
-
-    // create the Kinetic.Stage and layer
-   // var stage = Konva.Node.create(json, 'map');
+});
 
