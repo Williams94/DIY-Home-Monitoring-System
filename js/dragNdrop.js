@@ -51,11 +51,11 @@ $(window).load(function() {
             // this image will be used in a new Konva.Image
             // make the toolbar image draggable
             $house.draggable({helper: 'clone'});
-            $house.data("url", "sensor"+i); // key-value pair
+            $house.data("url", "sensor"); // key-value pair
             $house.data("width", 60); // key-value pair
             $house.data("height", 40); // key-value pair
             $house.data("image", image); // key-value pair
-            $house.data("class", "sensor"+i);
+            $house.data("class", document.getElementsByClassName("imageToDrag")[i].id);
         })();
     }
 // create the Konva.Stage and layer
@@ -91,7 +91,7 @@ $(window).load(function() {
         // be sure to adjust for any border width (here border==1)
         var image = new Konva.Image({
             name: data,
-            id: "image" + (imageCount++),
+            id: type,
             x: x,
             y: y,
             image: theImage,

@@ -30,10 +30,10 @@ $(window).load(function() {
 
             json = JSON.parse(json.json);
 
-            console.log(json);
+            //console.log(json);
 
             json.attrs[0] = $width;
-            console.log(json.attrs[0]);
+           // console.log(json.attrs[0]);
 
 
             //console.log(json.attrs.width);
@@ -41,28 +41,43 @@ $(window).load(function() {
            // json.attrs.width = $width;
 
             json = JSON.stringify(json);
-            console.log(json);
+           // console.log(json);
 
             var stage = Konva.Node.create(json, 'map');
 
+            var images = stage.find('Image');
 
-            var imageObj = new Image();
 
-            imageObj.onload = function() {
-                stage.get('#image0')[0].image(imageObj);
+
+
+                images.each(function (image) {
+                    var x = image.index - 1;
+                    if (image.attrs['id'] == "sensor0") {
+
+                        var imageObj = new Image();
+
+                        imageObj.onload = function () {
+                            stage.get('.sensor')[x].image(imageObj);
+                            stage.draw();
+                        };
+
+
+                        imageObj.src = 'images/sensor.jpeg';
+                    } else if (image.attrs['id'] == "sensor1") {
+                        var sensor2 = new Image();
+
+                        sensor2.onload = function () {
+                            stage.get('.sensor')[x].image(sensor2);
+                            stage.draw();
+                        };
+
+                        sensor2.src = 'images/sensor2.jpeg';
+                    }
+
+
+                });
 
                 stage.draw();
-            };
-            imageObj.src = 'images/sensor.jpeg';
-
-            var layer = stage.getLayers();
-
-            console.log(layer);
-
-            
-
-
-            stage.draw();
         }
     });
 });
