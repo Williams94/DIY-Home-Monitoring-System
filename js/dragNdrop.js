@@ -1,6 +1,25 @@
 // get a reference to the house icon in the toolbar
 // hide the icon until its image has loaded
 
+// JqueryUI accordion
+if (document.documentElement.clientWidth < 500) { // For mobile devices
+    $( "#accordion" ).accordion({
+        heightStyle: "auto",
+        collapsible:    true,
+        active: false
+    });
+} else {
+    $( "#accordion" ).accordion({
+        heightStyle: "auto",
+        collapsible:    true
+    });
+}
+
+// Sets the width and height of the canvas
+var $width = document.getElementById('container').clientWidth;
+// var $height = document.getElementById('content').clientHeight - 14;
+var $height = 400;
+
 // get the offset position of the Konva container
 var $stageContainer = $("#container");
 var stageOffset = $stageContainer.offset();
