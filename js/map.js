@@ -47,11 +47,7 @@ $(window).load(function() {
 
             var images = stage.find('Image');
 
-            console.log(images);
-
-
-
-                images.each(function (image) {
+            images.each(function (image) {
                     var x = image.index - 2;
 
                     if (image.attrs['id'] == "sensor0") {
