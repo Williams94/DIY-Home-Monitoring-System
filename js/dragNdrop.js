@@ -4,13 +4,13 @@ $(window).load(function() {
 // JqueryUI accordion
     if (document.documentElement.clientWidth < 500) { // For mobile devices
         $("#accordion").accordion({
-            heightStyle: "auto",
+            heightStyle: "fill",
             collapsible: true,
             active: false
         });
     } else {
         $("#accordion").accordion({
-            heightStyle: "auto",
+            heightStyle: "content",
             collapsible: true
         });
     }
@@ -19,7 +19,7 @@ $(window).load(function() {
     // Sets the width and height of the canvas
     var width = document.getElementById('container').clientWidth;
     // var height = document.getElementById('content').clientHeight - 14;
-    var height = 450;
+    var height = 400;
 
     var json;
 
@@ -51,7 +51,9 @@ $(window).load(function() {
             // start loading the image used in the draggable toolbar element
             // this image will be used in a new Konva.Image
             // make the toolbar image draggable
-            $house.draggable({helper: 'clone'});
+            $house.draggable({helper: 'clone'}).on('dragstart', function (e, ui) {
+                $(ui.helper).css('z-index','999999');
+            });
             $house.data("url", "sensor"); // key-value pair
             $house.data("width", 60); // key-value pair
             $house.data("height", 40); // key-value pair
@@ -98,23 +100,33 @@ $(window).load(function() {
         var imgHeight = element.data("height");
         var type = element.data("class");
 
+
+        if (type == "triangle"){
+            var triangle = new Konva.Shape({
+
+            });
+            layer.add(triangle);
+        } else if (type == "sensor0" || "sensor1"){
+            var image = new Konva.Image({
+                name: data,
+                id: type,
+                x: x,
+                y: y,
+                image: theImage,
+                width: imgWidth,
+                height: imgHeight,
+                draggable: true
+            });
+            image.on('dblclick', function () {
+                image.remove();
+                layer.draw();
+            });
+            layer.add(image);
+        }
+
         // create a new Konva.Image at the drop point
         // be sure to adjust for any border width (here border==1)
-        var image = new Konva.Image({
-            name: data,
-            id: type,
-            x: x,
-            y: y,
-            image: theImage,
-            width: imgWidth,
-            height: imgHeight,
-            draggable: true
-        });
-        image.on('dblclick', function () {
-            image.remove();
-            layer.draw();
-        });
-        layer.add(image);
+
         layer.draw();
         stage.add(layer);
     }
@@ -186,8 +198,8 @@ $(window).load(function() {
 
         var xScale =  (w  / initialWidth) * initialScale.x;  // percent change in width (Ex: 1000 - 400/1000 means the page scaled down 60%, you should play with this to get wanted results)
         var yScale = (h / initialHeight) * initialScale.y;
-        var newScale = {x: xScale, y: yScale};
-        console.log(newScale);
+        var newScale = {x: xScale, y: yScale *.8};
+        //console.log(newScale);
         stage.setAttr('width', w);
         stage.setAttr('height', h);
         stage.setAttr('scale', newScale );

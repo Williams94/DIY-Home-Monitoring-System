@@ -30,18 +30,9 @@ $(window).load(function() {
 
             json = JSON.parse(json.json);
 
-            //console.log(json);
-
             json.attrs[0] = $width;
-           // console.log(json.attrs[0]);
-
-
-            //console.log(json.attrs.width);
-
-           // json.attrs.width = $width;
 
             json = JSON.stringify(json);
-           // console.log(json);
 
             var stage = Konva.Node.create(json, 'map');
 
