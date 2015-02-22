@@ -15,26 +15,27 @@ $(window).load(function() {
         });
     }
 
-// Sets the width and height of the canvas
-    var $width = document.getElementById('container').clientWidth;
-// var $height = document.getElementById('content').clientHeight - 14;
-    var $height = 400;
+
+    // Sets the width and height of the canvas
+    var width = document.getElementById('container').clientWidth;
+    // var height = document.getElementById('content').clientHeight - 14;
+    var height = 450;
 
     var json;
 
-// get the offset position of the Konva container
+    // get the offset position of the Konva container
     var $stageContainer = $("#container");
     var stageOffset = $stageContainer.offset();
     var offsetX = stageOffset.left;
     var offsetY = stageOffset.top;
 
-//initialize counter for image IDs
+    //initialize counter for image IDs
     var imageCount = 0;
 
     //select images from toolbar
     var imageList = document.getElementsByClassName("imageToDrag");
 
-//loop through imageList
+    //loop through imageList
     for (var i = 0; i  < imageList.length; i++) {
         //use a closure to keep references clean
         (function() {
@@ -58,21 +59,31 @@ $(window).load(function() {
             $house.data("class", document.getElementsByClassName("imageToDrag")[i].id);
         })();
     }
-// create the Konva.Stage and layer
+    // create the Konva.Stage and layer
     var stage = new Konva.Stage({
         container: 'container',
-        width: $width,
-        height: $height
+        width: width,
+        height: height
     });
     var layer = new Konva.Layer();
     stage.add(layer);
 
-// make the Konva Container a dropzone
+    // make the Konva Container a dropzone
     $stageContainer.droppable({
         drop: dragDrop
     });
 
-// handle a drop into the Konva container
+    var border = new Konva.Rect({
+        width: stage.getWidth(),
+        height: stage.getHeight(),
+        stroke: 'black',
+        strokeWidth: 4, //Border Size in Pixels
+        fill: '#DDDDDD' //Background Color
+    });
+
+    layer.add(border);
+
+    // handle a drop into the Konva container
     function dragDrop(e, ui) {
 
         // get the drop point
@@ -160,5 +171,28 @@ $(window).load(function() {
     layer.add(rect);
     // add the layer to the stage
     stage.add(layer);
+
+
+    // Scale for window resize
+    var initialScale = stage.scale();
+    var initialWidth = $(window).width(); // initial width
+    var initialHeight = $(window).height(); // initial height
+
+
+
+    window.onresize = function(event) { // listen for change
+        var w = document.getElementById('content').clientWidth; // new width of page
+        var h = document.getElementById('content').clientHeight; // new height of page
+
+        var xScale =  (w  / initialWidth) * initialScale.x;  // percent change in width (Ex: 1000 - 400/1000 means the page scaled down 60%, you should play with this to get wanted results)
+        var yScale = (h / initialHeight) * initialScale.y;
+        var newScale = {x: xScale, y: yScale};
+        console.log(newScale);
+        stage.setAttr('width', w);
+        stage.setAttr('height', h);
+        stage.setAttr('scale', newScale );
+        stage.draw();
+    }
+
 
 });
