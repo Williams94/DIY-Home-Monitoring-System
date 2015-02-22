@@ -47,30 +47,34 @@ $(window).load(function() {
 
             var images = stage.find('Image');
 
+            console.log(images);
 
 
 
                 images.each(function (image) {
-                    var x = image.index - 1;
+                    var x = image.index - 2;
+
                     if (image.attrs['id'] == "sensor0") {
 
                         var imageObj = new Image();
 
                         imageObj.onload = function () {
                             stage.get('.sensor')[x].image(imageObj);
+                            stage.get('.sensor')[x].draggable(false);
                             stage.draw();
                         };
 
-
-                        imageObj.src = 'images/sensor.jpeg';
+                        imageObj.src = 'images/sensor.png';
                     } else if (image.attrs['id'] == "sensor1") {
                         var sensor2 = new Image();
 
                         sensor2.onload = function () {
                             stage.get('.sensor')[x].image(sensor2);
+                            stage.get('.sensor')[x].draggable(false);
                             stage.draw();
                         };
 
+                       // sensor2.setAttribute('draggable', 'false');
                         sensor2.src = 'images/sensor2.jpeg';
                     }
 

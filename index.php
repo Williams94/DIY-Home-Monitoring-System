@@ -15,6 +15,6 @@ $twig = new Twig_Environment($loader);
 
 $maps =  R::findAll('maps');
 
-//var_dump($maps);
+//print_r($maps);
 
 echo $twig->render('home.twig', array($maps));
