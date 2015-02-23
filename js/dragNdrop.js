@@ -4,7 +4,7 @@ $(window).load(function() {
 // JqueryUI accordion
     if (document.documentElement.clientWidth < 500) { // For mobile devices
         $("#accordion").accordion({
-            heightStyle: "fill",
+            heightStyle: "content",
             collapsible: true,
             active: false
         });
@@ -198,12 +198,17 @@ $(window).load(function() {
 
         var xScale =  (w  / initialWidth) * initialScale.x;  // percent change in width (Ex: 1000 - 400/1000 means the page scaled down 60%, you should play with this to get wanted results)
         var yScale = (h / initialHeight) * initialScale.y;
-        var newScale = {x: xScale, y: yScale *.8};
+        var newScale = {x: xScale, y: yScale};
         //console.log(newScale);
         stage.setAttr('width', w);
         stage.setAttr('height', h);
         stage.setAttr('scale', newScale );
         stage.draw();
+
+
+        $stageContainer.width(w*xScale);
+        $stageContainer.height(h*yScale);
+
     }
 
 

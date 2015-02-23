@@ -1,6 +1,7 @@
 /* ------------------------------Imports --------------------------------*/
 @import "elements.less";
 
+
 /* -----------------------------Typography -----------------------------*/
 @font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       "Trebuchet MS", Helvetica, sans-serif;
@@ -167,18 +168,20 @@ h1 {
 
 /*-------------- Build using Kinetic------------------------*/
 #container {
-
-  width:auto;
+  width: auto - 10;
   height:100%;
-
+  clear: both;
 }
+
 .wrapper {
-  width: 180px;
+  width: auto;
+  clear: both;
 }
 #accordion-resizer {
-  width:180px;
+  width: auto;
   height:auto;
   margin-top:10px;
+  clear: both;
 }
 
 .room {
@@ -204,5 +207,87 @@ h1 {
   margin-bottom: 5px;
 }
 #save {
-  width: 100px;
+  width: 98px;
+  height: 40px;
+  padding: 0;
+  margin-left: -20px;
 }
+
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 900px) {
+  #accordion-resizer {
+    width: 150px;
+    height:auto;
+    margin-top:10px;
+    clear: both;
+  }
+
+  div.col-xs-3 {
+    padding-left: 20px;
+    padding-right: 5px;
+  }
+
+  .col-xs-1 {
+    padding: 0;
+    margin: 0;
+    width: auto;
+  }
+
+  div.col-xs-9 {
+    padding: 0;
+    margin: 2px;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  div.col-xs-3 {
+    padding: 5px;
+    margin: 5px;
+    width: 80px;
+  }
+
+  div.col-xs-9 {
+    padding: 5px;
+    margin: 0;
+
+  }
+
+  div.col-xs-1 {
+    padding-left: 0;
+  }
+
+  #ui-accordion-accordion-panel-1{
+    padding-left: 10px;
+  }
+
+  #ui-accordion-accordion-panel-0{
+    padding-left: 5px;
+  }
+
+  .hide-text {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+
+}
+
+
+
+
