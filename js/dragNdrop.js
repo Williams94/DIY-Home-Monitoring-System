@@ -108,7 +108,7 @@ $(window).load(function() {
                 x: x+10,
                 y: y+30,
                 sides: 3,
-                radius: imgWidth/2,
+                radius: Math.round((imgWidth/2) * 100) / 100,
                 fill: 'white',
                 stroke: 'black',
                 strokeWidth: 2,
@@ -148,7 +148,7 @@ $(window).load(function() {
             var circle = new Konva.Circle({
                 x: x+10,
                 y: y+10,
-                radius: imgWidth/2,
+                radius: Math.round((imgWidth/2) * 100) / 100,
                 fill: 'white',
                 stroke: 'black',
                 strokeWidth: 3,
