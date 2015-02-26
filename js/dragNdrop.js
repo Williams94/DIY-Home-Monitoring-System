@@ -169,8 +169,8 @@ $(window).load(function() {
                 x: x,
                 y: y,
                 image: theImage,
-                width: imgWidth,
-                height: imgHeight,
+                width: Math.round((imgWidth/2) * 100) / 100,
+                height: Math.round((imgWidth/2) * 100) / 100,
                 draggable: true
             });
             image.on('dblclick', function () {

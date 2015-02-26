@@ -36,10 +36,28 @@ $(window).load(function() {
 
             var stage = Konva.Node.create(json, 'map');
 
+            var circles = stage.find('Circle');
+
+            circles.each(function(circle){
+                circle.draggable(false);
+            });
+
+            var rects = stage.find('Rect');
+
+            rects.each(function (rect){
+               rect.draggable(false);
+            });
+
+            var triangle = stage.find('RegularPolygon');
+
+            triangle.each(function (triangle) {
+               triangle.draggable(false);
+            });
+
             var images = stage.find('Image');
 
             images.each(function (image) {
-                    var x = image.index - 2;
+                    var x = image.index - 1;
 
                     if (image.attrs['id'] == "sensor0") {
 
@@ -48,6 +66,8 @@ $(window).load(function() {
                         imageObj.onload = function () {
                             stage.get('.sensor')[x].image(imageObj);
                             stage.get('.sensor')[x].draggable(false);
+                            stage.get('.sensor')[x].setAttr('width', 60);
+                            stage.get('.sensor')[x].setAttr('height', 40);
                             stage.draw();
                         };
 
@@ -58,6 +78,8 @@ $(window).load(function() {
                         sensor2.onload = function () {
                             stage.get('.sensor')[x].image(sensor2);
                             stage.get('.sensor')[x].draggable(false);
+                            stage.get('.sensor')[x].setAttr('width', 60);
+                            stage.get('.sensor')[x].setAttr('height', 40);
                             stage.draw();
                         };
 
