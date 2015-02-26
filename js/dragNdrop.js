@@ -111,7 +111,7 @@ $(window).load(function() {
                 radius: Math.round((imgWidth/2) * 100) / 100,
                 fill: 'white',
                 stroke: 'black',
-                strokeWidth: 2,
+                strokeWidth: 3,
                 draggable: true
             });
             triangle.on('dblclick', function () {
