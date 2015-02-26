@@ -55,8 +55,8 @@ $(window).load(function() {
                 $(ui.helper).css('z-index','999999');
             });
             $house.data("url", "sensor"); // key-value pair
-            $house.data("width", 60); // key-value pair
-            $house.data("height", 40); // key-value pair
+            $house.data("width", document.getElementsByClassName("imageToDrag")[i].naturalWidth/3); // key-value pair
+            $house.data("height", document.getElementsByClassName("imageToDrag")[i].naturalHeight/3); // key-value pair
             $house.data("image", image); // key-value pair
             $house.data("class", document.getElementsByClassName("imageToDrag")[i].id);
         })();
@@ -102,11 +102,67 @@ $(window).load(function() {
 
 
         if (type == "triangle"){
-            var triangle = new Konva.Shape({
+            console.log("Triangle");
+            var triangle = new Konva.RegularPolygon({
 
+                x: x+10,
+                y: y+30,
+                sides: 3,
+                radius: imgWidth/2,
+                fill: 'white',
+                stroke: 'black',
+                strokeWidth: 2,
+                draggable: true
+            });
+            triangle.on('dblclick', function () {
+                triangle.remove();
+                layer.draw();
             });
             layer.add(triangle);
-        } else if (type == "sensor0" || "sensor1"){
+        }
+
+        else if (type == "rect") {
+            console.log(imgWidth + " " +imgHeight);
+            var rect = new Konva.Rect({
+                name: data,
+                id: type,
+                x: x,
+                y: y+10,
+                width: Math.round(imgWidth * 100) / 100,
+                height: Math.round((imgHeight/2)*100) /100,
+                fill: 'white',
+                stroke: 'black',
+                strokeWidth: 3,
+                draggable: true
+            });
+            rect.on('dblclick', function () {
+                rect.remove();
+                layer.draw();
+            });
+
+            layer.add(rect);
+        }
+
+        else if(type == "circle") {
+            console.log("Circle");
+            var circle = new Konva.Circle({
+                x: x+10,
+                y: y+10,
+                radius: imgWidth/2,
+                fill: 'white',
+                stroke: 'black',
+                strokeWidth: 3,
+                draggable: true
+            });
+            circle.on('dblclick', function(){
+                circle.remove();
+                layer.draw();
+            });
+            layer.add(circle);
+        }
+
+        else if (type == "sensor0" || "sensor1"){
+            console.log("Sensor");
             var image = new Konva.Image({
                 name: data,
                 id: type,
@@ -170,17 +226,8 @@ $(window).load(function() {
     });
 
 
-    var rect = new Konva.Rect({
-        x: 50,
-        y: 50,
-        width: 100,
-        height: 50,
-        fill: 'green',
-        stroke: 'black',
-        strokeWidth: 4
-    });
-    // add the shape to the layer
-    layer.add(rect);
+
+
     // add the layer to the stage
     stage.add(layer);
 
