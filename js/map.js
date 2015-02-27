@@ -55,23 +55,26 @@ $(window).load(function() {
             });
 
             var images = stage.find('Image');
-
+            var x = 0;
             images.each(function (image) {
-                    var x = image.index - 1;
 
                     if (image.attrs['id'] == "sensor0") {
-
                         var imageObj = new Image();
 
                         imageObj.onload = function () {
+                            console.log(x);
                             stage.get('.sensor')[x].image(imageObj);
                             stage.get('.sensor')[x].draggable(false);
                             stage.get('.sensor')[x].setAttr('width', 60);
                             stage.get('.sensor')[x].setAttr('height', 40);
                             stage.draw();
+                            x++;
                         };
 
                         imageObj.src = 'images/sensor.png';
+
+
+
                     } else if (image.attrs['id'] == "sensor1") {
                         var sensor2 = new Image();
 

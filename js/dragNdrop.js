@@ -168,7 +168,7 @@ $(window).load(function() {
             layer.add(circle);
         }
 
-        else if (type == "sensor0" || "sensor1"){
+        else if (type == "sensor0"){
             console.log("Sensor");
             var image = new Konva.Image({
                 name: data,
@@ -195,7 +195,7 @@ $(window).load(function() {
     }
 
 
-   
+
 
 
 
