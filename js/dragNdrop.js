@@ -70,6 +70,12 @@ $(window).load(function() {
     var layer = new Konva.Layer();
     stage.add(layer);
 
+
+    var group = new Konva.Group({
+
+    });
+    layer.add(group);
+
     // make the Konva Container a dropzone
     $stageContainer.droppable({
         drop: dragDrop
@@ -84,6 +90,7 @@ $(window).load(function() {
     });
 
     layer.add(border);
+
 
     // handle a drop into the Konva container
     function dragDrop(e, ui) {
@@ -139,7 +146,7 @@ $(window).load(function() {
                 rect.remove();
                 layer.draw();
             });
-
+            group.add(rect)
             layer.add(rect);
         }
 
@@ -186,6 +193,10 @@ $(window).load(function() {
         layer.draw();
         stage.add(layer);
     }
+
+
+   
+
 
 
     $("#save").click( function(){
@@ -257,6 +268,7 @@ $(window).load(function() {
         $stageContainer.height(h*yScale);
 
     }
+
 
 
 });
