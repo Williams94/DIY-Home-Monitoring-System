@@ -11,7 +11,8 @@ $(window).load(function() {
     } else {
         $("#accordion").accordion({
             heightStyle: "content",
-            collapsible: true
+            collapsible: true,
+            active: false
         });
     }
 
@@ -112,8 +113,8 @@ $(window).load(function() {
             console.log("Triangle");
             var triangle = new Konva.RegularPolygon({
 
-                x: x+10,
-                y: y+30,
+                x: x+50,
+                y: y-58,
                 sides: 3,
                 radius: Math.round((imgWidth/2) * 100) / 100,
                 fill: 'white',
@@ -133,8 +134,8 @@ $(window).load(function() {
             var rect = new Konva.Rect({
                 name: data,
                 id: type,
-                x: x,
-                y: y+10,
+                x: x+5,
+                y: y-80,
                 width: Math.round(imgWidth * 100) / 100,
                 height: Math.round((imgHeight/2)*100) /100,
                 fill: 'white',
@@ -146,15 +147,15 @@ $(window).load(function() {
                 rect.remove();
                 layer.draw();
             });
-            group.add(rect)
+            group.add(rect);
             layer.add(rect);
         }
 
         else if(type == "circle") {
             console.log("Circle");
             var circle = new Konva.Circle({
-                x: x+10,
-                y: y+10,
+                x: x+45,
+                y: y-70,
                 radius: Math.round((imgWidth/2) * 100) / 100,
                 fill: 'white',
                 stroke: 'black',
