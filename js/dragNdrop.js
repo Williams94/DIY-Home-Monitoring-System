@@ -215,6 +215,10 @@ $(window).load(function() {
                 triangle.remove();
                 layer.draw();
             });
+            triangle.on('click', function(){
+               triangle.moveToTop();
+                layer.draw();
+            });
             layer.add(triangle);
         }
 
@@ -231,10 +235,7 @@ $(window).load(function() {
                 stroke: 'black',
                 strokeWidth: 3
             });
-            rect.on('dblclick', function () {
-                rect.remove();
-                layer.draw();
-            });
+
             var group = new Konva.Group({
                 draggable: true
             });
@@ -244,6 +245,14 @@ $(window).load(function() {
             addAnchor(group, x+5,y-85,"topLeft");
             addAnchor(group, x+5,y-35,"bottomLeft");
             addAnchor(group, x+90,y-85,"topRight");
+            group.on('dblclick', function () {
+                group.remove();
+                layer.draw();
+            });
+            group.on('click', function(){
+                group.moveToTop();
+                layer.draw();
+            });
         }
 
         else if(type == "circle") {
@@ -259,6 +268,10 @@ $(window).load(function() {
             });
             circle.on('dblclick', function(){
                 circle.remove();
+                layer.draw();
+            });
+            circle.on('click', function(){
+                circle.moveToTop();
                 layer.draw();
             });
             layer.add(circle);
@@ -281,6 +294,10 @@ $(window).load(function() {
                 bed.remove();
                 layer.draw();
             });
+            bed.on('click', function(){
+                bed.moveToTop();
+                layer.draw();
+            });
             layer.add(bed);
         }
 
@@ -298,6 +315,10 @@ $(window).load(function() {
             });
             bathroom.on('dblclick', function(){
                 bathroom.remove();
+                layer.draw();
+            });
+            bathroom.on('click', function(){
+                bathroom.moveToTop();
                 layer.draw();
             });
             layer.add(bathroom);
@@ -319,6 +340,10 @@ $(window).load(function() {
                 kitchen.remove();
                 layer.draw();
             });
+            kitchen.on('click', function(){
+                kitchen.moveToTop();
+                layer.draw();
+            });
             layer.add(kitchen);
         }
 
@@ -336,6 +361,10 @@ $(window).load(function() {
             });
             washer.on('dblclick', function(){
                 washer.remove();
+                layer.draw();
+            });
+            washer.on('click', function(){
+                washer.moveToTop();
                 layer.draw();
             });
             layer.add(washer);
@@ -357,6 +386,10 @@ $(window).load(function() {
                 tv.remove();
                 layer.draw();
             });
+            tv.on('click', function(){
+                tv.moveToTop();
+                layer.draw();
+            });
             layer.add(tv);
         }
 
@@ -376,6 +409,10 @@ $(window).load(function() {
                 sofa.remove();
                 layer.draw();
             });
+            sofa.on('click', function(){
+                sofa.moveToTop();
+                layer.draw();
+            });
             layer.add(sofa);
         }
 
@@ -393,6 +430,10 @@ $(window).load(function() {
             });
             door.on('dblclick', function(){
                 door.remove();
+                layer.draw();
+            });
+            door.on('click', function(){
+                door.moveToTop();
                 layer.draw();
             });
             layer.add(door);
