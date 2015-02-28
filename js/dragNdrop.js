@@ -1,6 +1,93 @@
 // get a reference to the house icon in the toolbar
 // hide the icon until its image has loaded
 $(window).load(function() {
+
+    function update(activeAnchor) {
+
+        var group = activeAnchor.getParent();
+        var topLeft = group.get('.topLeft')[0];
+        var topRight = group.get('.topRight')[0];
+        var bottomRight = group.get('.bottomRight')[0];
+        var bottomLeft = group.get('.bottomLeft')[0];
+        var image = group.get('Shape')[0];
+
+        var anchorX = activeAnchor.getX();
+        var anchorY = activeAnchor.getY();
+
+        // update anchor positions
+        switch (activeAnchor.getName()) {
+            case 'topLeft':
+                topRight.setY(anchorY);
+                bottomLeft.setX(anchorX);
+                break;
+            case 'topRight':
+                topLeft.setY(anchorY);
+                bottomRight.setX(anchorX);
+                break;
+            case 'bottomRight':
+                bottomLeft.setY(anchorY);
+                topRight.setX(anchorX);
+                break;
+            case 'bottomLeft':
+                bottomRight.setY(anchorY);
+                topLeft.setX(anchorX);
+                break;
+        }
+        image.position(topLeft.position());
+        var width = topRight.getX() - topLeft.getX();
+        var height = bottomLeft.getY() - topLeft.getY();
+        if(width && height) {
+            image.width(width);
+            image.height(height);
+        }
+    }
+
+    function addAnchor(group, x, y, name) {
+        var stage = group.getStage();
+        var layer = group.getLayer();
+
+        var anchor = new Konva.Circle({
+            x: x,
+            y: y,
+            stroke: '#666',
+            fill: '#ddd',
+            strokeWidth: 2,
+            radius: 6,
+            name: name,
+            draggable: true,
+            dragOnTop: false,
+            opacity: 0.7
+        });
+        anchor.on('dragmove', function() {
+            update(this);
+            layer.draw();
+        });
+        anchor.on('mousedown touchstart', function() {
+            group.setDraggable(false);
+            this.moveToTop();
+        });
+        anchor.on('dragend', function() {
+            group.setDraggable(true);
+            layer.draw();
+        });
+        // add hover styling
+        anchor.on('mouseover', function() {
+            var layer = this.getLayer();
+            document.body.style.cursor = 'pointer';
+            this.setStrokeWidth(4);
+            layer.draw();
+        });
+        anchor.on('mouseout', function() {
+            var layer = this.getLayer();
+            document.body.style.cursor = 'default';
+            this.setStrokeWidth(2);
+            layer.draw();
+        });
+        group.add(anchor);
+
+    }
+
+
 // JqueryUI accordion
     if (document.documentElement.clientWidth < 500) { // For mobile devices
         $("#accordion").accordion({
@@ -72,10 +159,7 @@ $(window).load(function() {
     stage.add(layer);
 
 
-    var group = new Konva.Group({
 
-    });
-    layer.add(group);
 
     // make the Konva Container a dropzone
     $stageContainer.droppable({
@@ -100,6 +184,10 @@ $(window).load(function() {
         var x = parseInt(ui.offset.left - offsetX);
         var y = parseInt(ui.offset.top - offsetY);
 
+        // Image offsets
+        var widthOff = 20;
+        var heightOff = 90;
+
         // get the drop payload (here the payload is the image)
         var element = ui.draggable;
         var data = element.data("url");
@@ -114,7 +202,7 @@ $(window).load(function() {
             var triangle = new Konva.RegularPolygon({
 
                 x: x+50,
-                y: y-60,
+                y: y-55,
                 sides: 3,
                 radius: 85/2,
                 fill: 'white',
@@ -130,25 +218,31 @@ $(window).load(function() {
         }
 
         else if (type == "rect") {
-            console.log(imgWidth + " " +imgHeight);
+
             var rect = new Konva.Rect({
                 name: data,
                 id: type,
                 x: x+5,
-                y: y-85,
+                y: y-83,
                 width: 85,
                 height: 50,
                 fill: 'white',
                 stroke: 'black',
-                strokeWidth: 3,
-                draggable: true
+                strokeWidth: 3
             });
             rect.on('dblclick', function () {
                 rect.remove();
                 layer.draw();
             });
+            var group = new Konva.Group({
+                draggable: true
+            });
+            layer.add(group);
             group.add(rect);
-            layer.add(rect);
+            addAnchor(group, x+90,y-35,"bottomRight");
+            addAnchor(group, x+5,y-85,"topLeft");
+            addAnchor(group, x+5,y-35,"bottomLeft");
+            addAnchor(group, x+90,y-85,"topRight");
         }
 
         else if(type == "circle") {
@@ -169,27 +263,140 @@ $(window).load(function() {
             layer.add(circle);
         }
 
-        else if (type == "sensor0"){
-            console.log("Sensor");
-            var image = new Konva.Image({
+
+        else if (type == "bed"){
+            console.log("Bed!");
+            var bed = new Konva.Image({
                 name: data,
                 id: type,
-                x: x,
-                y: y,
+                x: x+widthOff,
+                y: y-heightOff,
                 image: theImage,
-                width: Math.round((imgWidth) * 100) / 100,
-                height: Math.round((imgWidth) * 100) / 100,
+                width: Math.round((imgWidth*2) * 100) / 100,
+                height: Math.round((imgHeight*2) * 100) / 100,
                 draggable: true
             });
-            image.on('dblclick', function () {
-                image.remove();
+            bed.on('dblclick', function () {
+                bed.remove();
                 layer.draw();
             });
-            layer.add(image);
+            layer.add(bed);
         }
 
-        // create a new Konva.Image at the drop point
-        // be sure to adjust for any border width (here border==1)
+        else if (type == "bathroom"){
+            console.log("Bathroom!");
+            var bathroom = new Konva.Image({
+                name: data,
+                id: type,
+                x: x+widthOff,
+                y: y-heightOff,
+                image: theImage,
+                width: Math.round((imgWidth*1.5) * 100) / 100,
+                height: Math.round((imgHeight*1.5) * 100) / 100,
+                draggable: true
+            });
+            bathroom.on('dblclick', function(){
+                bathroom.remove();
+                layer.draw();
+            });
+            layer.add(bathroom);
+        }
+
+        else if (type == "kitchen"){
+            console.log("Kitchen!");
+            var kitchen = new Konva.Image({
+                name: data,
+                id: type,
+                x: x+widthOff,
+                y: y-heightOff,
+                image: theImage,
+                width: Math.round((imgWidth*1.5) * 100) / 100,
+                height: Math.round((imgHeight*1.5) * 100) / 100,
+                draggable: true
+            });
+            kitchen.on('dblclick', function(){
+                kitchen.remove();
+                layer.draw();
+            });
+            layer.add(kitchen);
+        }
+
+        else if (type == "washer"){
+            console.log("Washer!");
+            var washer = new Konva.Image({
+                name: data,
+                id: type,
+                x: x+widthOff,
+                y: y-heightOff,
+                image: theImage,
+                width: Math.round((imgWidth*1.5) * 100) / 100,
+                height: Math.round((imgHeight*1.5) * 100) / 100,
+                draggable: true
+            });
+            washer.on('dblclick', function(){
+                washer.remove();
+                layer.draw();
+            });
+            layer.add(washer);
+        }
+
+        else if (type == "tv"){
+            console.log("TV!");
+            var tv = new Konva.Image({
+                name: data,
+                id: type,
+                x: x+widthOff,
+                y: y-heightOff,
+                image: theImage,
+                width: Math.round((imgWidth*1.5) * 100) / 100,
+                height: Math.round((imgHeight*1.5) * 100) / 100,
+                draggable: true
+            });
+            tv.on('dblclick', function(){
+                tv.remove();
+                layer.draw();
+            });
+            layer.add(tv);
+        }
+
+        else if (type == "sofa"){
+            console.log("Sofa!");
+            var sofa = new Konva.Image({
+                name: data,
+                id: type,
+                x: x+widthOff,
+                y: y-heightOff,
+                image: theImage,
+                width: Math.round((imgWidth*1.5) * 100) / 100,
+                height: Math.round((imgHeight*1.5) * 100) / 100,
+                draggable: true
+            });
+            sofa.on('dblclick', function(){
+                sofa.remove();
+                layer.draw();
+            });
+            layer.add(sofa);
+        }
+
+        else if (type == "door"){
+            console.log("Door!");
+            var door = new Konva.Image({
+                name: data,
+                id: type,
+                x: x+widthOff,
+                y: y-heightOff,
+                image: theImage,
+                width: Math.round((imgWidth*1.5) * 100) / 100,
+                height: Math.round((imgHeight*1.5) * 100) / 100,
+                draggable: true
+            });
+            door.on('dblclick', function(){
+                door.remove();
+                layer.draw();
+            });
+            layer.add(door);
+        }
+
 
         layer.draw();
         stage.add(layer);
@@ -236,9 +443,6 @@ $(window).load(function() {
 
 
     });
-
-
-
 
     // add the layer to the stage
     stage.add(layer);
