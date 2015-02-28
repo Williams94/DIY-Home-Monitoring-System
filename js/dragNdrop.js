@@ -114,9 +114,9 @@ $(window).load(function() {
             var triangle = new Konva.RegularPolygon({
 
                 x: x+50,
-                y: y-58,
+                y: y-60,
                 sides: 3,
-                radius: Math.round((imgWidth/2) * 100) / 100,
+                radius: 85/2,
                 fill: 'white',
                 stroke: 'black',
                 strokeWidth: 3,
@@ -135,9 +135,9 @@ $(window).load(function() {
                 name: data,
                 id: type,
                 x: x+5,
-                y: y-80,
-                width: Math.round(imgWidth * 100) / 100,
-                height: Math.round((imgHeight/2)*100) /100,
+                y: y-85,
+                width: 85,
+                height: 50,
                 fill: 'white',
                 stroke: 'black',
                 strokeWidth: 3,
@@ -154,9 +154,9 @@ $(window).load(function() {
         else if(type == "circle") {
             console.log("Circle");
             var circle = new Konva.Circle({
-                x: x+45,
-                y: y-70,
-                radius: Math.round((imgWidth/2) * 100) / 100,
+                x: x+50,
+                y: y-68,
+                radius: 85/2,
                 fill: 'white',
                 stroke: 'black',
                 strokeWidth: 3,
@@ -177,8 +177,8 @@ $(window).load(function() {
                 x: x,
                 y: y,
                 image: theImage,
-                width: Math.round((imgWidth/2) * 100) / 100,
-                height: Math.round((imgWidth/2) * 100) / 100,
+                width: Math.round((imgWidth) * 100) / 100,
+                height: Math.round((imgWidth) * 100) / 100,
                 draggable: true
             });
             image.on('dblclick', function () {
