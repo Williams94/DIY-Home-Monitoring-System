@@ -47,6 +47,7 @@ $(window).load(function() {
         var layer = group.getLayer();
 
         var anchor = new Konva.Circle({
+            id: 'anchor',
             x: x,
             y: y,
             stroke: '#666',
@@ -107,7 +108,7 @@ $(window).load(function() {
     // Sets the width and height of the canvas
     var width = document.getElementById('container').clientWidth;
     // var height = document.getElementById('content').clientHeight - 14;
-    var height = 400;
+    var height = 360;
 
     var json;
 
@@ -409,7 +410,6 @@ $(window).load(function() {
 
     $("#save").click( function(){
         json = stage.toJSON();
-
 
         // Using the core $.ajax() method
         $.ajax({
