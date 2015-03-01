@@ -267,6 +267,8 @@ function dragNdrop(stage){
             drop: dragDrop
         });
 
+        var sensor1placed = false;
+
         // handle a drop into the Konva container
         function dragDrop(e, ui) {
 
@@ -286,9 +288,9 @@ function dragNdrop(stage){
             var imgHeight = element.data("height");
             var type = element.data("class");
 
-
             for (var i = 0; i  < imageList.length; i++) {
                 //use a closure to keep references clean
+
                 (function () {
                     if (type == "sensor"+i) {
                         console.log("Sensor"+i);
@@ -305,6 +307,7 @@ function dragNdrop(stage){
                         console.log(data+i);
                         sensor.on('dblclick', function () {
                             sensor.remove();
+                            draggable(type, "enable");
                             layer.draw();
                         });
                         sensor.on('click', function(){
@@ -315,6 +318,9 @@ function dragNdrop(stage){
 
                     }
 
+
+                    draggable(type, "disable");
+
                 })();
             }
 
@@ -324,6 +330,23 @@ function dragNdrop(stage){
         }
 
     });
+
+    function draggable(type, enable){
+        if (type == "sensor1"){
+            $('#sensor1').draggable(enable);
+        } else if (type == "sensor2"){
+            $('#sensor2').draggable(enable);
+        } else if (type == "sensor3"){
+            $('#sensor3').draggable(enable);
+        } else if (type == "sensor4"){
+            $('#sensor4').draggable(enable);
+        } else if (type == "sensor5"){
+            $('#sensor5').draggable(enable);
+        } else if (type == "sensor6"){
+            $('#sensor6').draggable(enable);
+        }
+    }
+
 
 
     $("#save").click( function() {
@@ -341,8 +364,7 @@ function dragNdrop(stage){
             // contentType: "application/json",
 
             success: function (json) {
-                console.log(json);
-                alert("The request is was successful!");
+                
             },
 
             error: function (xhr, status, errorThrown) {

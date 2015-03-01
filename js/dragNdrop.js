@@ -108,7 +108,7 @@ $(window).load(function() {
     // Sets the width and height of the canvas
     var width = document.getElementById('container').clientWidth;
     // var height = document.getElementById('content').clientHeight - 14;
-    var height = 360;
+    var height = 400;
 
     var json;
 
@@ -447,7 +447,11 @@ $(window).load(function() {
 
 
 
+
+
+
     $("#save").click( function(){
+
         json = stage.toJSON();
 
         // Using the core $.ajax() method
@@ -462,8 +466,12 @@ $(window).load(function() {
             // contentType: "application/json",
 
             success: function( json ) {
-                console.log(json);
-                alert( "The request is was successful!" );
+                bootbox.confirm("Saved!", function(result) {
+                    if( result == true){
+                        window.location.href = "sensors.php";
+                    }
+                });
+
             },
 
             error: function( xhr, status, errorThrown ) {
