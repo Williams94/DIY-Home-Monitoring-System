@@ -87,13 +87,19 @@ $(window).load(function() {
             var screen = 0;
             var couch = 0;
             var open = 0;
+            var s1 = 0;
+            var s2 = 0;
+            var s3 = 0;
+            var s4 = 0;
+            var s5 = 0;
+            var s6 =0;
             images.each(function (image) {
 
                 if (image.attrs['id'] == "bed") {
 
                     var imageObj = new Image();
 
-                    console.log(stage.get('.bed'));
+                    //console.log(stage.get('.bed'));
 
                     imageObj.onload = function () {
 
@@ -203,11 +209,96 @@ $(window).load(function() {
                     door.src = 'images/open129.png';
                 }
 
+                else if (image.attrs['id'] == "sensor1") {
+
+                    var sens1 = new Image();
+
+                    sens1.onload = function () {
+
+                        stage.get('.sensor1')[s1].image(sens1);
+                        stage.get('.sensor1')[s1].draggable(false);
+                        stage.draw();
+                        s1++;
+                    };
+                    sens1.src = 'images/sensor1.png';
+                }
+
+                else if (image.attrs['id'] == "sensor2") {
+
+                    var sens2 = new Image();
+
+                    sens2.onload = function () {
+
+                        stage.get('.sensor2')[s2].image(sens2);
+                        stage.get('.sensor2')[s2].draggable(false);
+                        stage.draw();
+                        s2++;
+                    };
+                    sens2.src = 'images/sensor2.png';
+                }
+
+                else if (image.attrs['id'] == "sensor3") {
+
+                    var sens3 = new Image();
+
+                    sens3.onload = function () {
+
+                        stage.get('.sensor3')[s3].image(sens3);
+                        stage.get('.sensor3')[s3].draggable(false);
+                        stage.draw();
+                        s3++;
+                    };
+                    sens3.src = 'images/sensor3.png';
+                }
+
+                else if (image.attrs['id'] == "sensor4") {
+
+                    var sens4 = new Image();
+
+                    sens4.onload = function () {
+
+                        stage.get('.sensor4')[s4].image(sens4);
+                        stage.get('.sensor4')[s4].draggable(false);
+                        stage.draw();
+                        s4++;
+                    };
+                    sens4.src = 'images/sensor4.png';
+                }
+
+                else if (image.attrs['id'] == "sensor5") {
+
+                    var sens5 = new Image();
+
+                    sens5.onload = function () {
+
+                        stage.get('.sensor5')[s5].image(sens5);
+                        stage.get('.sensor5')[s5].draggable(false);
+                        stage.draw();
+                        s5++;
+                    };
+                    sens5.src = 'images/sensor5.png';
+                }
+
+                else if (image.attrs['id'] == "sensor6") {
+
+                    var sens6 = new Image();
+
+                    sens6.onload = function () {
+
+                        stage.get('.sensor6')[s6].image(sens6);
+                        stage.get('.sensor6')[s6].draggable(false);
+                        stage.draw();
+                        s6++;
+                    };
+                    sens6.src = 'images/sensor6.png';
+                }
 
             });
+
+
 
             stage.draw();
         }
     });
-    
+
 });

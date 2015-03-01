@@ -118,8 +118,7 @@ $(window).load(function() {
     var offsetX = stageOffset.left;
     var offsetY = stageOffset.top;
 
-    //initialize counter for image IDs
-    var imageCount = 0;
+
 
     //select images from toolbar
     var imageList = document.getElementsByClassName("imageToDrag");
