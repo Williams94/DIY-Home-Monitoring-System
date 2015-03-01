@@ -171,8 +171,8 @@ $(window).load(function() {
         width: stage.getWidth(),
         height: stage.getHeight(),
         stroke: 'black',
-        strokeWidth: 4, //Border Size in Pixels
-        fill: '#DDDDDD' //Background Color
+        strokeWidth: 3,
+        fill: '#EBEBE0'
     });
 
     layer.add(border);
@@ -225,7 +225,6 @@ $(window).load(function() {
         else if (type == "rect") {
 
             var rect = new Konva.Rect({
-                name: data,
                 id: type,
                 x: x+5,
                 y: y-83,

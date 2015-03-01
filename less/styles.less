@@ -31,7 +31,7 @@
 
 /*----------------------------- Variables -----------------------------*/
 @border-color: darken(#E7E7E7, 20%);
-@gray-darker:  lighten(#000, 13.5%); // #222
+@gray-darker:  lighten(#000, 0%); // #222
 @gray-dark:    lighten(#000, 20%);   // #333
 @gray:         lighten(#000, 33.5%); // #555
 @gray-light:   lighten(#000, 46.7%); // #777
@@ -43,7 +43,16 @@
 @brand-info:    lighten(#5bc0de, 10%);
 @brand-warning: #f0ad4e;
 @brand-danger:  #d9534f;
-@text-color: #000000;
+@text-color: #000;
+
+@dark-primary-color: #1976D2;
+@primary-color: #BBDEFB;
+@light-primary-color: #2196F3;
+@text: #FFFFFF;
+@secondary-text: #727272;
+@accent: #FFC107;
+@divider-color: #CBD0D3;
+
 
 /*----------------------------- Mixins -----------------------------*/
 .border-radius (@radius: 5px) {
@@ -55,15 +64,13 @@
 
 /*-------------------------- Global CSS -------------------------------*/
 #content {
-  .bordered(@border-color, @border-color, @border-color, @border-color);
+  .bordered(@primary-color, @gray-darker, @primary-color, @gray-darker);
   min-height: 100%;
   position:relative;
-  .border-radius(5px);
-  background-color: #ffffff;
+  background-color: @text;
   //.inner-shadow(1px, 1px, 3px, 0.5);
   font-family: @font-family-serif;
   padding-right: 10px;
-
 }
 .container {
   height: 100%;
@@ -71,7 +78,7 @@
 html,
 body {
   /*.gradient(@gray-light, @gray-light, @gray-lighter);*/
-  .gradient(@brand-primary, @brand-primary, #FFFFFF);
+  background-color: @dark-primary-color;
   margin:0;
   padding:0;
   height: 100%;
@@ -95,22 +102,23 @@ h1 {
 
 /*----------------------- Navbar ---------------------------*/
 #navbar {
-  padding-left: 10px;
-  .gradient(@brand-primary, @brand-primary, #FFFFFF);
-  .bordered(@border-color,@border-color,@border-color,@border-color);
-  margin-top: 8px;
-  color: @text-color;
+  margin-right: 2px;
+  margin-left: -3px;
+  background-color: @dark-primary-color;
+  .bordered(@dark-primary-color, @dark-primary-color, @gray-darker, @dark-primary-color);
+  margin-top: -2px;
+  color: @text;
   font-family: @font-family-serif;
   font-size: @nav-text;
-  .box-shadow(0 1px 2px #999);
+  //.box-shadow(0 1px 2px #999);
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: @text-color;
+  color: @text;
 }
 
 .navbar-default .navbar-brand {
-  color: @text-color;
+  color: @text;
   font-size: 30px;
 }
 
@@ -183,6 +191,7 @@ h1 {
   width: auto;
   height: 80px;
   clear: both;
+  color: @secondary-text;
 }
 
 .room {
@@ -251,6 +260,8 @@ h1 {
   height: 40px;
   padding: 0;
   margin-top: 10px;
+  background-color: @accent;
+  color: @gray-darker;
 }
 
 

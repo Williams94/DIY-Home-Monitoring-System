@@ -79,18 +79,19 @@ $(window).load(function() {
             });
 
             var images = stage.find('Image');
-            var x = 0;
+            var x = -1;
             images.each(function (image) {
-                console.log(x);
+                console.log(stage.get('.sensor'));
                 if (image.attrs['id'] == "bed") {
+                    var bed = 0;
                     var imageObj = new Image();
-
                     imageObj.onload = function () {
                         console.log(x);
+                        x++;
                         stage.get('.sensor')[x].image(imageObj);
                         stage.get('.sensor')[x].draggable(false);
                         stage.draw();
-                        x++;
+
                     };
 
                     imageObj.src = 'images/sleeping.png';
@@ -100,12 +101,13 @@ $(window).load(function() {
 
                 else if (image.attrs['id'] == "bathroom") {
                     var bathroom = new Image();
-
+                    console.log(x);
                     bathroom.onload = function () {
+                        x++;
                         stage.get('.sensor')[x].image(bathroom);
                         stage.get('.sensor')[x].draggable(false);
                         stage.draw();
-                        x++;
+
                     };
 
                     // sensor2.setAttribute('draggable', 'false');
@@ -114,12 +116,13 @@ $(window).load(function() {
 
                 else if (image.attrs['id'] == "kitchen") {
                     var kitchen = new Image();
-
+                    console.log(x);
                     kitchen.onload = function () {
+                        x++;
                         stage.get('.sensor')[x].image(kitchen);
                         stage.get('.sensor')[x].draggable(false);
                         stage.draw();
-                        x++;
+
                     };
 
                     // sensor2.setAttribute('draggable', 'false');
@@ -128,12 +131,13 @@ $(window).load(function() {
 
                 else if (image.attrs['id'] == "washer") {
                     var washer = new Image();
-
+                    console.log(x);
                     washer.onload = function () {
+                        x++;
                         stage.get('.sensor')[x].image(washer);
                         stage.get('.sensor')[x].draggable(false);
                         stage.draw();
-                        x++;
+
                     };
 
                     // sensor2.setAttribute('draggable', 'false');
@@ -142,12 +146,13 @@ $(window).load(function() {
 
                 else if (image.attrs['id'] == "tv") {
                     var tv = new Image();
-
+                    console.log(x);
                     tv.onload = function () {
+                        x++;
                         stage.get('.sensor')[x].image(tv);
                         stage.get('.sensor')[x].draggable(false);
                         stage.draw();
-                        x++;
+
                     };
 
                     // sensor2.setAttribute('draggable', 'false');
@@ -156,12 +161,13 @@ $(window).load(function() {
 
                 else if (image.attrs['id'] == "sofa") {
                     var sofa = new Image();
-
+                    console.log(x);
                     sofa.onload = function () {
+                        x++;
                         stage.get('.sensor')[x].image(sofa);
                         stage.get('.sensor')[x].draggable(false);
                         stage.draw();
-                        x++;
+
                     };
 
                     // sensor2.setAttribute('draggable', 'false');
@@ -170,12 +176,13 @@ $(window).load(function() {
 
                 else if (image.attrs['id'] == "door") {
                     var door = new Image();
-
+                    console.log(x);
                     door.onload = function () {
+                        x++;
                         stage.get('.sensor')[x].image(door);
                         stage.get('.sensor')[x].draggable(false);
                         stage.draw();
-                        x++;
+
                     };
 
                     // sensor2.setAttribute('draggable', 'false');
