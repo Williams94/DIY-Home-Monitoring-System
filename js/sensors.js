@@ -364,7 +364,7 @@ function dragNdrop(stage){
             // contentType: "application/json",
 
             success: function (json) {
-                
+
             },
 
             error: function (xhr, status, errorThrown) {
