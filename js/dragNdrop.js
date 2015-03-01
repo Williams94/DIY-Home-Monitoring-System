@@ -280,7 +280,7 @@ $(window).load(function() {
         else if (type == "bed"){
             console.log("Bed!");
             var bed = new Konva.Image({
-                name: data,
+                name: 'bed',
                 id: type,
                 x: x+widthOff,
                 y: y-heightOff,
@@ -303,7 +303,7 @@ $(window).load(function() {
         else if (type == "bathroom"){
             console.log("Bathroom!");
             var bathroom = new Konva.Image({
-                name: data,
+                name: 'bathroom',
                 id: type,
                 x: x+widthOff,
                 y: y-heightOff,
@@ -326,7 +326,7 @@ $(window).load(function() {
         else if (type == "kitchen"){
             console.log("Kitchen!");
             var kitchen = new Konva.Image({
-                name: data,
+                name: 'kitchen',
                 id: type,
                 x: x+widthOff,
                 y: y-heightOff,
@@ -349,7 +349,7 @@ $(window).load(function() {
         else if (type == "washer"){
             console.log("Washer!");
             var washer = new Konva.Image({
-                name: data,
+                name: 'washer',
                 id: type,
                 x: x+widthOff,
                 y: y-heightOff,
@@ -372,7 +372,7 @@ $(window).load(function() {
         else if (type == "tv"){
             console.log("TV!");
             var tv = new Konva.Image({
-                name: data,
+                name: 'tv',
                 id: type,
                 x: x+widthOff,
                 y: y-heightOff,
@@ -395,7 +395,7 @@ $(window).load(function() {
         else if (type == "sofa"){
             console.log("Sofa!");
             var sofa = new Konva.Image({
-                name: data,
+                name: 'sofa',
                 id: type,
                 x: x+widthOff,
                 y: y-heightOff,
@@ -418,7 +418,7 @@ $(window).load(function() {
         else if (type == "door"){
             console.log("Door!");
             var door = new Konva.Image({
-                name: data,
+                name: 'door',
                 id: type,
                 x: x+widthOff,
                 y: y-heightOff,
