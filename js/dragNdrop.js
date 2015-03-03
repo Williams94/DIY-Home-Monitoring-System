@@ -452,6 +452,8 @@ $(window).load(function() {
 
     $("#save").click( function(){
 
+
+
         json = stage.toJSON();
 
         // Using the core $.ajax() method
@@ -466,9 +468,43 @@ $(window).load(function() {
             // contentType: "application/json",
 
             success: function( json ) {
-                bootbox.confirm("Saved!", function(result) {
-                    if( result == true){
-                        window.location.href = "sensors.php";
+
+                bootbox.dialog({
+                    message: "Map saved, click next to add sensors.",
+
+                    title: "Saved!",
+
+                    onEscape: function() {},
+
+                    show: true,
+
+
+
+                    closeButton: true,
+
+                    animate: true,
+
+                    className: "my-modal",
+
+                    buttons: {
+
+                        "Keep editing": {
+                            className: "btn-primary",
+                            callback: function() {}
+                        },
+
+                        success: {
+
+                            label: "Next",
+
+                            className: "btn-success",
+
+                            callback: function() {
+                                window.location.href = "sensors.php";
+                            }
+                        }
+
+
                     }
                 });
 

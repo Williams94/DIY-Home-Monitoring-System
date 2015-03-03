@@ -46,11 +46,11 @@
 @text-color: #000;
 
 @dark-primary-color: #1976D2;
-@primary-color: #BBDEFB;
-@light-primary-color: #2196F3;
+@primary-color: #2196F3;
+@light-primary-color: #BBDEFB;
 @text: #FFFFFF;
 @secondary-text: #727272;
-@accent: #FFC107;
+@accent: #5CB85C;
 @divider-color: #CBD0D3;
 
 
@@ -78,7 +78,7 @@
 html,
 body {
   /*.gradient(@gray-light, @gray-light, @gray-lighter);*/
-  background-color: @dark-primary-color;
+  background-color: @primary-color;
   margin:0;
   padding:0;
   height: 100%;
@@ -104,8 +104,8 @@ h1 {
 #navbar {
   margin-right: 2px;
   margin-left: -3px;
-  background-color: @dark-primary-color;
-  .bordered(@dark-primary-color, @dark-primary-color, @gray-darker, @dark-primary-color);
+  background-color: @primary-color;
+  .bordered(@primary-color, @primary-color, @gray-darker, @primary-color);
   margin-top: -2px;
   color: @text;
   font-family: @font-family-serif;
@@ -258,7 +258,7 @@ h1 {
   padding: 0;
   margin-top: 10px;
   background-color: @accent;
-  color: @gray-darker;
+  color: @text;
 }
 
 
