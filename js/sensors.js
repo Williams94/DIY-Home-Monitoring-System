@@ -350,34 +350,82 @@ function dragNdrop(stage){
 
 
     $("#save").click( function() {
-        json = stage.toJSON();
+        bootbox.dialog({
 
-        // Using the core $.ajax() method
-        $.ajax({
+            message: "<form id='name' role='form' method='GET'>\
+            <div class='form-group'>\
+            <label for='name'>Name of your house: </label>\
+            <input type='text' class='form-control' name='name' placeholder='House name here...'>\
+            </div>\
+            <input type='submit' name='Submit' value='Add Name' class='btn btn-sucess'>",
 
-            url: "php/save.php",
+            title: "Saved!",
 
-            type: "POST",
+            onEscape: function() {},
 
-            data: {data: json},
+            show: true,
 
-            // contentType: "application/json",
 
-            success: function (json) {
 
-            },
+            closeButton: true,
 
-            error: function (xhr, status, errorThrown) {
-                alert("Sorry, there was a problem!");
-                console.log("Error: " + errorThrown);
-                console.log("Status: " + status);
-                console.dir(xhr);
-            },
+            animate: true,
 
-            complete: function (xhr, status) {
+            className: "my-modal",
+
+            buttons: {
+
+                "Keep editing": {
+                    className: "btn-primary",
+                    callback: function() {}
+                },
+
+                success: {
+
+                    label: "Save",
+
+                    className: "btn-success",
+
+                    callback: function() {
+                        /*
+                        json = stage.toJSON();
+
+                        // Using the core $.ajax() method
+                        $.ajax({
+
+                            url: "php/update.php",
+
+                            type: "POST",
+
+                            data: {JSON: json, name: name},
+
+                            // contentType: "application/json",
+
+                            success: function (json) {
+                                window.location.href = "home.php";
+
+                            },
+
+                            error: function (xhr, status, errorThrown) {
+                                alert("Sorry, there was a problem!");
+                                console.log("Error: " + errorThrown);
+                                console.log("Status: " + status);
+                                console.dir(xhr);
+                            },
+
+                            complete: function (xhr, status) {
+
+                            }
+                        });
+                        */
+
+                    }
+                }
+
 
             }
         });
+
     });
 
 }

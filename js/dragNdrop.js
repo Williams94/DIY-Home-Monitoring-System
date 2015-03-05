@@ -451,8 +451,7 @@ $(window).load(function() {
 
 
     $("#save").click( function(){
-
-
+        var name = $('#name').val();
 
         json = stage.toJSON();
 
@@ -463,14 +462,14 @@ $(window).load(function() {
 
             type: "POST",
 
-            data: {data:json},
+            data: {data:json,name:name},
 
             // contentType: "application/json",
 
             success: function( json ) {
 
                 bootbox.dialog({
-                    message: "Map saved, click next to add sensors.",
+                    message: name + " map saved!",
 
                     title: "Saved!",
 
