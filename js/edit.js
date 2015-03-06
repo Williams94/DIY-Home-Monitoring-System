@@ -118,7 +118,7 @@ $(window).load(function() {
 
                 image.on('click', function(){
                     image.moveToTop();
-                })
+                });
                 if (image.attrs['id'] == "bed") {
 
                     var imageObj = new Image();
