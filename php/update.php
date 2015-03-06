@@ -13,12 +13,10 @@ session_start();
 $id = $_SESSION['mapid'];
 
 $json = $_POST['data'];
-$name = $_POST['name'];
 
 $map =  R::load( 'maps', $id );
 
 $map->json2 = $json;
-$map->name = $name;
 $map->lastUpdated = R::isoDateTime();
 
 R::store($map);
