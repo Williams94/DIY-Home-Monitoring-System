@@ -1,0 +1,45 @@
+<script src="js/edit.js"></script>
+<div class="row">
+    <div class="col-xs-10 col-md-10">
+        <div id="accordion-resizer">
+            <div id="accordion" class="wrapper">
+
+                <h3 class="hide-text">Rooms</h3>
+                <div>
+                    <img id="rect" class="imageToDrag" src="images/rectangle.png">
+                    <img id="triangle" class="imageToDrag" src="images/triangle.png">
+                    <img id="circle" class="imageToDrag" src="images/circle.png">
+                    <img id="bed" class="imageToDrag" src="images/sleeping.png">
+                    <img id="bathroom" class="imageToDrag" src="images/bathroom24.png">
+                    <img id="kitchen" class="imageToDrag" src="images/cutlery22.png">
+                    <img id="washer" class="imageToDrag" src="images/washer.png">
+                    <img id="tv" class="imageToDrag" src="images/screen54.png">
+                    <img id="sofa" class="imageToDrag" src="images/sofa12.png">
+                    <img id="door" class="imageToDrag" src="images/open129.png">
+                </div>
+
+                {#
+                 <h3 class="hide-text">Sensors</h3>
+                 <div>
+                     <img id="sensor0" class="imageToDrag" src="images/sensor.png" alt="sensor">
+                    <!-- <img id="sensor1" class="imageToDrag" src="images/sensor2.png" alt="sensor2"> -->
+                 </div>#}
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-2 col-md-2">
+        <form role='form' method='POST'>
+            <div class='form-group'>
+                <label for='name'>Name of your house: </label>
+                <input type='text' id='name' class='form-control' name='name' placeholder='Update name...'>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary btn-lg" id="save" data-loading-text="Loading...">Save</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div id="map"></div>
+    </div>
+</div>
+
