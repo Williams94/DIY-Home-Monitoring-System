@@ -185,8 +185,8 @@ $(window).load(function() {
         var y = parseInt(ui.offset.top - offsetY);
 
         // Image offsets
-        var widthOff = 20;
-        var heightOff = 90;
+        var widthOff = 10;
+        var heightOff = -5;
 
         // get the drop payload (here the payload is the image)
         var element = ui.draggable;
@@ -201,8 +201,8 @@ $(window).load(function() {
             console.log("Triangle");
             var triangle = new Konva.RegularPolygon({
 
-                x: x+50,
-                y: y-55,
+                x: x+40,
+                y: y+40,
                 sides: 3,
                 radius: 85/2,
                 fill: 'white',
@@ -223,10 +223,12 @@ $(window).load(function() {
 
         else if (type == "rect") {
 
+            var rectXoff = 10;
+            var rectYoff = 25;
             var rect = new Konva.Rect({
                 id: type,
-                x: x+5,
-                y: y-83,
+                x: x+rectXoff,
+                y: y+rectYoff,
                 width: 85,
                 height: 50,
                 fill: 'white',
@@ -239,10 +241,10 @@ $(window).load(function() {
             });
             layer.add(group);
             group.add(rect);
-            addAnchor(group, x+90,y-35,"bottomRight");
-            addAnchor(group, x+5,y-85,"topLeft");
-            addAnchor(group, x+5,y-35,"bottomLeft");
-            addAnchor(group, x+90,y-85,"topRight");
+            addAnchor(group,x+95,y+75,"bottomRight");
+            addAnchor(group, x+10,y+25,"topLeft");
+            addAnchor(group, x+10,y+75,"bottomLeft");
+            addAnchor(group, x+95,y+25,"topRight");
             group.on('dblclick', function () {
                 group.remove();
                 layer.draw();
@@ -462,16 +464,16 @@ $(window).load(function() {
 
             type: "POST",
 
-            data: {data:json,name:name},
+            data: {data:json,name:name,action:'save'},
 
             // contentType: "application/json",
 
             success: function( json ) {
-
+                console.log(json);
                 bootbox.dialog({
-                    message: name + " map saved!",
+                    message: "<h3>"+name + " map saved!</h3>",
 
-                    title: "Saved!",
+                    title: "<h2>Saved!</h2>",
 
                     onEscape: function() {},
 

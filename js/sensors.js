@@ -1,4 +1,5 @@
 var stage;
+var name;
 
 $(window).load(function() {
 
@@ -12,13 +13,18 @@ $(window).load(function() {
     $.ajax({
         url: "php/get.php",
 
-
         type: "POST",
+
+        dataType: "json",
 
         data: {action: 'getmap'},
 
         success: function (data) {
-            json = JSON.parse(data);
+            json = data;
+
+            console.log(data);
+
+            name = json.name;
 
             json = JSON.parse(json.json);
 
@@ -197,12 +203,12 @@ $(window).load(function() {
 
 
             });
-            dragNdrop(stage);
+            dragNdrop(stage, name);
             stage.draw();
         }
     });
 });
-function dragNdrop(stage){
+function dragNdrop(stage, name){
     $( document ).ready(function() {
 
 // JqueryUI accordion
@@ -257,6 +263,31 @@ function dragNdrop(stage){
 
         var $stageContainer = $("#map");
         // get the offset position of the kinetic container
+
+        console.log(name);
+        var text = new Konva.Text({
+            x: stage.getWidth() / 2,
+            y: 15,
+            text: name,
+            fontSize: 40,
+            fontFamily: 'Calibri',
+            fill: 'black',
+            opacity: 0.5,
+            draggable: true,
+            dragBoundFunc: function(pos) {
+                return {
+                    x: pos.x,
+                    y: pos.y
+                }
+            }
+        });
+        // to align text in the middle of the screen, we can set the
+        // shape offset to the center of the text shape after instantiating it
+        text.setOffset({
+            x: text.getWidth()
+        });
+
+        layer.add(text);
 
         var stageOffset = $stageContainer.offset();
         var offsetX = stageOffset.left;
@@ -350,16 +381,13 @@ function dragNdrop(stage){
 
 
     $("#save").click( function() {
+        json = stage.toJSON();
         bootbox.dialog({
 
-            message: "<form id='name' role='form' method='GET'>\
-            <div class='form-group'>\
-            <label for='name'>Name of your house: </label>\
-            <input type='text' class='form-control' name='name' placeholder='House name here...'>\
-            </div>\
-            <input type='submit' name='Submit' value='Add Name' class='btn btn-sucess'>",
+            message: "<h3>Finised placing your sensors?</br></h3>" +
+            "</br><h3>Click next to continue</h3>",
 
-            title: "Saved!",
+            title: "<h2>Saved!</h2>",
 
             onEscape: function() {},
 
@@ -382,13 +410,13 @@ function dragNdrop(stage){
 
                 success: {
 
-                    label: "Save",
+                    label: "Next",
 
                     className: "btn-success",
 
                     callback: function() {
-                        /*
-                        json = stage.toJSON();
+
+
 
                         // Using the core $.ajax() method
                         $.ajax({
@@ -397,13 +425,12 @@ function dragNdrop(stage){
 
                             type: "POST",
 
-                            data: {JSON: json, name: name},
+                            data: {data: json},
 
                             // contentType: "application/json",
 
                             success: function (json) {
-                                window.location.href = "home.php";
-
+                                window.location.href = "./index.php";
                             },
 
                             error: function (xhr, status, errorThrown) {
@@ -417,7 +444,7 @@ function dragNdrop(stage){
 
                             }
                         });
-                        */
+
 
                     }
                 }

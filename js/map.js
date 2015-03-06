@@ -8,6 +8,8 @@ $(window).load(function() {
     var $height = 400;
 
     var json;
+    var json2;
+
 
     // get the offset position of the kinetic container
     //var $stageContainer = $("#map");
@@ -20,15 +22,65 @@ $(window).load(function() {
     $.ajax({
         url: "php/get.php",
 
-
         type: "POST",
 
         data: {action: 'getmap'},
 
+
+
         success: function (data) {
             json = JSON.parse(data);
+            //edit = json.edit;
 
-            json = JSON.parse(json.json);
+
+            json = JSON.parse(json.json2);
+            //json2 = JSON.parse(json.json);
+            //console.log(json);
+
+            if (json == null){
+                console.log(null);
+                bootbox.dialog({
+                    message: "<div class='jumbotron'>\
+                    <h1>Welcome!</h1>\
+                    <p>To create a new map please click New Map</p>\
+                    <p>Or if you've already created your map, place your sensors by click Sensors</p>\
+                    </div>",
+
+                    onEscape: function() {},
+
+                    show: true,
+
+
+                    closeButton: true,
+
+                    animate: true,
+
+                    className: "my-modal",
+
+                    buttons: {
+
+                        "Sensors": {
+                            className: "btn-primary",
+                            callback: function() {
+                                window.location.href = "sensors.php";
+                            }
+                        },
+
+                        success: {
+
+                            label: "New Map!",
+
+                            className: "btn-success",
+
+                            callback: function() {
+                                window.location.href = "build.php";
+                            }
+                        }
+
+
+                    }
+                });
+            }
 
             json.attrs[0] = $width;
 
@@ -40,6 +92,12 @@ $(window).load(function() {
 
             circles.each(function (circle) {
                 circle.draggable(false);
+            });
+
+            var text = stage.find('Text');
+
+            text.each(function (text){
+                text.draggable(false);
             });
 
             var group = stage.find('Group');
