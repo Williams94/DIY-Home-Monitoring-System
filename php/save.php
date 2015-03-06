@@ -8,17 +8,44 @@
 
 include '../dblogin.php';
 
-$json = $_POST['data'];
-$name = $_POST['name'];
+$action = $_POST["action"];
 
-$map = R::dispense('maps');
+if($action=="save") {
+    $json = $_POST['data'];
+    $name = $_POST['name'];
 
-$map->name = $name;
-$map->json = $json;
-$map->created = R::isoDateTime();
+    $map = R::dispense('maps');
 
-$id = R::store($map);
+    $map->name = $name;
+    $map->json = $json;
+    $map->created = R::isoDateTime();
 
-session_start();
+    $id = R::store($map);
 
-$_SESSION['mapid'] = $id;
+    session_start();
+
+    $_SESSION['mapid'] = $id;
+}
+
+else if ($action=="edit"){
+    session_start();
+
+    $id = $_SESSION['mapid'];
+
+    $json = $_POST['data'];
+    $name = $_POST['name'];
+
+
+
+    $map =  R::load( 'maps', $id );
+
+    if ($name != ""){
+        $map->name = $name;
+    }
+    $map->json = $json;
+    $map->lastEdited = R::isoDateTime();
+
+    R::store($map);
+
+
+}
