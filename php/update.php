@@ -18,5 +18,6 @@ $map =  R::load( 'maps', $id );
 
 $map->json2 = $json;
 $map->lastUpdated = R::isoDateTime();
+$map->active = true;
 
 R::store($map);

@@ -108,7 +108,7 @@ $(window).load(function() {
     // Sets the width and height of the canvas
     var width = document.getElementById('container').clientWidth;
     // var height = document.getElementById('content').clientHeight - 14;
-    var height = 400;
+    var height = 450;
 
     var json;
 

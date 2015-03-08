@@ -22,9 +22,7 @@ if($action=="save") {
 
     $id = R::store($map);
 
-    session_start();
 
-    $_SESSION['mapid'] = $id;
 }
 
 else if ($action=="edit"){
@@ -44,6 +42,7 @@ else if ($action=="edit"){
     }
     $map->json = $json;
     $map->lastEdited = R::isoDateTime();
+    $map->active = false;
 
     R::store($map);
 

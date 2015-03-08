@@ -36,6 +36,7 @@ $(window).load(function() {
             json = JSON.parse(json.json2);
             //json2 = JSON.parse(json.json);
             //console.log(json);
+            console.log(data);
 
             if (json == null){
                 console.log(null);
@@ -356,6 +357,10 @@ $(window).load(function() {
 
 
             stage.draw();
+        },
+
+        complete: function() {
+            console.log("hello");
         }
     });
 

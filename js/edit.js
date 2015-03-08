@@ -24,7 +24,7 @@ $(window).load(function() {
         success: function (data) {
             json = data;
 
-            console.log(data);
+            console.log(data.id);
 
             name = json.name;
 
@@ -99,7 +99,7 @@ $(window).load(function() {
 
             triangle.each(function (triangle) {
                 triangle.draggable(true);
-                triangle.on(click, function(){
+                triangle.on('click', function(){
                     triangle.moveToTop();
                 })
             });
