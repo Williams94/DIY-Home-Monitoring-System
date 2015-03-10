@@ -5,7 +5,7 @@ $(window).load(function() {
     // Sets the width and height of the canvas
     var $width = document.getElementById('map').clientWidth;
     // var $height = document.getElementById('content').clientHeight - 14;
-    var $height = 400;
+    var $height = document.getElementById('map').clientHeight;
 
     var json;
     var json2;
@@ -83,12 +83,12 @@ $(window).load(function() {
                 });
             }
 
-            json.attrs[0] = $width;
+
+            console.log(json.attrs);
 
             json = JSON.stringify(json);
 
             var stage = Konva.Node.create(json, 'map');
-
             var circles = stage.find('Circle');
 
             circles.each(function (circle) {

@@ -271,7 +271,13 @@ div.form-group {
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
+  #container {
+    height: 500px;
+  }
 
+  #map {
+    height: 500px;
+  }
 }
 
 /* Portrait tablets and medium desktops */
@@ -298,10 +304,20 @@ div.form-group {
     padding: 0;
     margin: 2px;
   }
+  #content {
+    height: 480px;
+    min-height: 100%;
+  }
 }
+
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
+  #content {
+    height: 480px;
+
+    min-height: 100%;
+  }
 
 }
 

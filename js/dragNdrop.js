@@ -100,14 +100,13 @@ $(window).load(function() {
         $("#accordion").accordion({
             heightStyle: "content",
             collapsible: true,
-            active: false
+            active: true
         });
     }
 
 
     // Sets the width and height of the canvas
     var width = document.getElementById('container').clientWidth;
-    // var height = document.getElementById('content').clientHeight - 14;
     var height = 450;
 
     var json;
@@ -149,6 +148,7 @@ $(window).load(function() {
             $house.data("class", document.getElementsByClassName("imageToDrag")[i].id);
         })();
     }
+    console.log(height);
     // create the Konva.Stage and layer
     var stage = new Konva.Stage({
         container: 'container',
@@ -531,7 +531,7 @@ $(window).load(function() {
     // add the layer to the stage
     stage.add(layer);
 
-
+/*
     // Scale for window resize
     var initialScale = stage.scale();
     var initialWidth = $(window).width(); // initial width
@@ -557,7 +557,7 @@ $(window).load(function() {
         $stageContainer.height(h*yScale);
 
     }
-
+*/
 
 
 });
