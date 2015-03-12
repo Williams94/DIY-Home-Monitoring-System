@@ -33,6 +33,7 @@
         </div>
         <div class="col-md-2">
             <a href="./edit.php"><button type="button" class="btn btn-primary btn-lg" id="edit" data-loading-text="Loading...">Edit</button></a>
+            <a href="./build.php"><button type="button" class="btn btn-primary btn-success" id="new" data-loading-text="Loading...">New Map</button></a>
         </div>
     </div>
 {% endblock header %}
@@ -47,4 +48,6 @@
         </div>
     </div>
     <script src="js/map.js"></script>
+    {% include 'flot.twig' %}
+
 {% endblock main %}
