@@ -308,8 +308,8 @@ function dragNdrop(stage, name){
             var y = parseInt(ui.offset.top - offsetY);
 
             // Image offsets
-            var widthOff = 20;
-            var heightOff = 90;
+            var widthOff = 40;
+            var heightOff = 60;
 
             // get the drop payload (here the payload is the image)
             var element = ui.draggable;

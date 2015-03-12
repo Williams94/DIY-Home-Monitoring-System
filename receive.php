@@ -8,17 +8,18 @@
 
 include 'dblogin.php';
 
-$test = '2015/03/10,19:09:49,42C7645F,-56,1,105,20,3103,68.26,192,0,8525,26105,1';
-
-
-
-$lines = file('LOG00038.TXT', FILE_IGNORE_NEW_LINES);
-
+//$test = '2015/03/10,19:09:49,42C7645F,-56,1,105,20,3103,68.26,192,0,8525,26105,1';
+$data = $_POST['data'];
+$test = R::dispense('test');
+$test->data = $data;
+$id = R::store($test);
+echo "Conected";
+//$lines = file('LOG00038.TXT', FILE_IGNORE_NEW_LINES);
+/*
 for($i = 0; $i < sizeof($lines); $i++){
     $data = explode(",",$lines[$i]);
-/*
+
 if ($data[2] = "42C7645F"){
-    echo "Sensor1";
 
     $sensor1 = R::dispense('sensor1');
     $sensor1->date = $data[0];
@@ -38,7 +39,7 @@ if ($data[2] = "42C7645F"){
 
     $id = R::store($sensor1);
 
-}*/
+}
 if ($data[2] = "4214EDAC"){
     echo "Sensor2";
 
@@ -143,7 +144,7 @@ if ($data[2] = "42679E2B"){
     $sensor6->switch = $data[13];
 
     $id = R::store($sensor6);
-}
+}*/
 }
 
 /*
