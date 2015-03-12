@@ -329,20 +329,12 @@ function addAnchor(group, x, y, name) {
 function dragNdrop(stage, name){
     $( document ).ready(function() {
 
-// JqueryUI accordion
-        if (document.documentElement.clientWidth < 500) { // For mobile devices
+
             $("#accordion").accordion({
                 heightStyle: "content",
-                collapsible: true,
-                active: false
+                collapsible : true
             });
-        } else {
-            $("#accordion").accordion({
-                heightStyle: "content",
-                collapsible: true,
-                active: false
-            });
-        }
+
 
         //select images from toolbar
         var imageList = document.getElementsByClassName("imageToDrag");
