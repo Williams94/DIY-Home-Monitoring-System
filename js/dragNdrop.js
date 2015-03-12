@@ -89,20 +89,11 @@ $(window).load(function() {
     }
 
 
-// JqueryUI accordion
-    if (document.documentElement.clientWidth < 500) { // For mobile devices
+
         $("#accordion").accordion({
             heightStyle: "content",
-            collapsible: true,
-            active: false
+            collapsible : true
         });
-    } else {
-        $("#accordion").accordion({
-            heightStyle: "content",
-            collapsible: true,
-            active: true
-        });
-    }
 
 
     // Sets the width and height of the canvas

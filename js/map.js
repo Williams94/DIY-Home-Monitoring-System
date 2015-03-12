@@ -36,7 +36,6 @@ $(window).load(function() {
             json = JSON.parse(json.json2);
             //json2 = JSON.parse(json.json);
             //console.log(json);
-            console.log(data);
 
             if (json == null){
                 console.log(null);
@@ -276,6 +275,16 @@ $(window).load(function() {
 
                         stage.get('.sensor1')[s1].image(sens1);
                         stage.get('.sensor1')[s1].draggable(false);
+                        stage.get('.sensor1')[s1].on('mouseover mouseout', function() {
+                            document.body.style.cursor = 'pointer';
+                            });
+                        stage.get('.sensor1')[s1].on('mouseout', function() {
+                            document.body.style.cursor = 'default';
+                        });
+                        stage.get('.sensor1')[s1].on('click', function(){
+                            $('#basicModal').modal('toggle');
+                        });
+                        console.log(stage.get('.sensor1')[s1].attrs['x']);
                         stage.draw();
                         s1++;
                     };
@@ -290,6 +299,15 @@ $(window).load(function() {
 
                         stage.get('.sensor2')[s2].image(sens2);
                         stage.get('.sensor2')[s2].draggable(false);
+                        stage.get('.sensor2')[s2].on('mouseover mouseout', function() {
+                            document.body.style.cursor = 'pointer';
+                        });
+                        stage.get('.sensor2')[s2].on('mouseout', function() {
+                            document.body.style.cursor = 'default';
+                        });
+                        stage.get('.sensor2')[s2].on('click', function(){
+                            $('#basicModal').modal('toggle');
+                        });
                         stage.draw();
                         s2++;
                     };
@@ -304,6 +322,15 @@ $(window).load(function() {
 
                         stage.get('.sensor3')[s3].image(sens3);
                         stage.get('.sensor3')[s3].draggable(false);
+                        stage.get('.sensor3')[s3].on('mouseover mouseout', function() {
+                            document.body.style.cursor = 'pointer';
+                        });
+                        stage.get('.sensor3')[s3].on('mouseout', function() {
+                            document.body.style.cursor = 'default';
+                        });
+                        stage.get('.sensor3')[s3].on('click', function(){
+                            $('#basicModal').modal('toggle');
+                        });
                         stage.draw();
                         s3++;
                     };
@@ -318,6 +345,15 @@ $(window).load(function() {
 
                         stage.get('.sensor4')[s4].image(sens4);
                         stage.get('.sensor4')[s4].draggable(false);
+                        stage.get('.sensor4')[s4].on('mouseover mouseout', function() {
+                            document.body.style.cursor = 'pointer';
+                        });
+                        stage.get('.sensor4')[s4].on('mouseout', function() {
+                            document.body.style.cursor = 'default';
+                        });
+                        stage.get('.sensor4')[s4].on('click', function(){
+                            $('#basicModal').modal('toggle');
+                        });
                         stage.draw();
                         s4++;
                     };
@@ -332,6 +368,15 @@ $(window).load(function() {
 
                         stage.get('.sensor5')[s5].image(sens5);
                         stage.get('.sensor5')[s5].draggable(false);
+                        stage.get('.sensor5')[s5].on('mouseover mouseout', function() {
+                            document.body.style.cursor = 'pointer';
+                        });
+                        stage.get('.sensor5')[s5].on('mouseout', function() {
+                            document.body.style.cursor = 'default';
+                        });
+                        stage.get('.sensor5')[s5].on('click', function(){
+                            $('#basicModal').modal('toggle');
+                        });
                         stage.draw();
                         s5++;
                     };
@@ -346,6 +391,15 @@ $(window).load(function() {
 
                         stage.get('.sensor6')[s6].image(sens6);
                         stage.get('.sensor6')[s6].draggable(false);
+                        stage.get('.sensor6')[s6].on('mouseover mouseout', function() {
+                            document.body.style.cursor = 'pointer';
+                        });
+                        stage.get('.sensor6')[s6].on('mouseout', function() {
+                            document.body.style.cursor = 'default';
+                        });
+                        stage.get('.sensor6')[s6].on('click', function(){
+                            $('#basicModal').modal('toggle');
+                        });
                         stage.draw();
                         s6++;
                     };
@@ -363,5 +417,6 @@ $(window).load(function() {
             console.log("hello");
         }
     });
+
 
 });
