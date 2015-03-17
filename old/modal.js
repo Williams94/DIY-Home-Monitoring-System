@@ -9,7 +9,7 @@ function fetchTemp(){
 
         type: "POST",
 
-        data: {action: 'gettemp'},
+        data: {action: 'gettemp'}
 
 
         success: function (data) {

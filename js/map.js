@@ -38,7 +38,6 @@ $(window).load(function() {
             //console.log(json);
 
             if (json == null){
-                console.log(null);
                 bootbox.dialog({
                     message: "<div class='jumbotron'>\
                     <h1>Welcome!</h1>\
@@ -83,7 +82,6 @@ $(window).load(function() {
             }
 
 
-            console.log(json.attrs);
 
             json = JSON.stringify(json);
 
