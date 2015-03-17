@@ -8,19 +8,11 @@
 
 include 'dblogin.php';
 
-//$test = '2015/03/10,19:09:49,42C7645F,-56,1,105,20,3103,68.26,192,0,8525,26105,1';
-$data = $_POST['data'];
-$test = R::dispense('test');
-$test->data = $data;
-$id = R::store($test);
-echo "Conected";
-//$lines = file('LOG00038.TXT', FILE_IGNORE_NEW_LINES);
-/*
-for($i = 0; $i < sizeof($lines); $i++){
-    $data = explode(",",$lines[$i]);
+$packet = $_POST['data'];
+$data = explode(",",$packet);
 
-if ($data[2] = "42C7645F"){
-
+if ($data[2] == "42C7645F"){
+     //Sensor 1
     $sensor1 = R::dispense('sensor1');
     $sensor1->date = $data[0];
     $sensor1->time = $data[1];
@@ -38,11 +30,10 @@ if ($data[2] = "42C7645F"){
     $sensor1->switch = $data[13];
 
     $id = R::store($sensor1);
-
+    echo $data[2] + " Data Received";
 }
-if ($data[2] = "4214EDAC"){
-    echo "Sensor2";
-
+if ($data[2] == "4214EDAC"){
+     //Sensor 2
     $sensor2 = R::dispense('sensor2');
     $sensor2->date = $data[0];
     $sensor2->time = $data[1];
@@ -60,10 +51,10 @@ if ($data[2] = "4214EDAC"){
     $sensor2->switch = $data[13];
 
     $id = R::store($sensor2);
+    echo $data[2] + " Data Received";
 }
-if ($data[2] = "425EFE31"){
-    echo "Sensor3";
-
+if ($data[2] == "425EFE31"){
+     //Sensor 3
     $sensor3 = R::dispense('sensor3');
     $sensor3->date = $data[0];
     $sensor3->time = $data[1];
@@ -81,10 +72,10 @@ if ($data[2] = "425EFE31"){
     $sensor3->switch = $data[13];
 
     $id = R::store($sensor3);
+    echo $data[2] + " Data Received";
 }
- if ($data[2] = "42FDEFA0"){
-    echo "Sensor4";
-
+ if ($data[2] == "42FDEFA0"){
+    //Sensor 4
     $sensor4 = R::dispense('sensor4');
     $sensor4->date = $data[0];
     $sensor4->time = $data[1];
@@ -102,10 +93,10 @@ if ($data[2] = "425EFE31"){
     $sensor4->switch = $data[13];
 
     $id = R::store($sensor4);
+    echo $data[2] + " Data Received";
 }
-if ($data[2] = "421F8331"){
-    echo "Sensor5";
-
+if ($data[2] == "421F8331"){
+     //Sensor 5
     $sensor5 = R::dispense('sensor5');
     $sensor5->date = $data[0];
     $sensor5->time = $data[1];
@@ -123,10 +114,10 @@ if ($data[2] = "421F8331"){
     $sensor5->switch = $data[13];
 
     $id = R::store($sensor5);
+    echo $data[2] + " Data Received";
 }
-if ($data[2] = "42679E2B"){
-    echo "Sensor6";
-
+if ($data[2] == "42679E2B"){
+    //Sensor 6
     $sensor6 = R::dispense('sensor6');
     $sensor6->date = $data[0];
     $sensor6->time = $data[1];
@@ -144,22 +135,7 @@ if ($data[2] = "42679E2B"){
     $sensor6->switch = $data[13];
 
     $id = R::store($sensor6);
-}*/
+    echo $data[2] + " Data Received";
 }
+?>
 
-/*
-$date = $data.[0];
-$time = $data.[1];
-$name = $data.[2];
-$RSSI = $data.[3];
-$type = $data.[4];
-$no = $data.[5];
-$power = $data.[6];
-$battery =$data.[7];
-$humidity = $data.[8];
-$temp = $data.[9];
-$light = $data.[10];
-$PIRcount = $data.[11];
-$PIRenergy = $data.[12];
-$switch = $data.[13];
-*/

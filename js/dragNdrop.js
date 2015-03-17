@@ -177,7 +177,7 @@ $(window).load(function() {
 
         // Image offsets
         var widthOff = 10;
-        var heightOff = 30;
+        var heightOff = 0;
 
         // get the drop payload (here the payload is the image)
         var element = ui.draggable;
@@ -193,7 +193,7 @@ $(window).load(function() {
             var triangle = new Konva.RegularPolygon({
 
                 x: x+50,
-                y: y+2,
+                y: y+35,
                 sides: 3,
                 radius: 85/2,
                 fill: 'white',
@@ -214,8 +214,8 @@ $(window).load(function() {
 
         else if (type == "rect") {
 
-            var rectXoff = 13;
-            var rectYoff = -27;
+            var rectXoff = 11;
+            var rectYoff = 6;
             var rect = new Konva.Rect({
                 id: type,
                 x: x+rectXoff,
@@ -232,10 +232,10 @@ $(window).load(function() {
             });
             layer.add(group);
             group.add(rect);
-            addAnchor(group,x+99,y+25,"bottomRight");
-            addAnchor(group, x+14,y-25,"topLeft");
-            addAnchor(group, x+14,y+25,"bottomLeft");
-            addAnchor(group, x+99,y-25,"topRight");
+            addAnchor(group,x+96,y+56,"bottomRight");
+            addAnchor(group, x+11,y+6,"topLeft");
+            addAnchor(group, x+11,y+56,"bottomLeft");
+            addAnchor(group, x+96,y+6,"topRight");
             group.on('dblclick', function () {
                 group.remove();
                 layer.draw();
@@ -250,7 +250,7 @@ $(window).load(function() {
             console.log("Circle");
             var circle = new Konva.Circle({
                 x: x+50,
-                y: y,
+                y: y+35,
                 radius: 85/2,
                 fill: 'white',
                 stroke: 'black',
