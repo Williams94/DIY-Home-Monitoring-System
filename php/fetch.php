@@ -16,17 +16,21 @@ if($action=="gettemp"){
 
 
 
-    //$data = R::findAll( 'sensor1' , ' ORDER BY id DESC LIMIT 10 ' );
+    $data = R::getAll( 'SELECT * FROM `sensor1`  WHERE type=1  ORDER BY id DESC LIMIT 500' );
 
+    echo json_encode($data);
+
+    /*
     for ($i = 4; $i < 100; $i++){
-        $data = R::load( 'sensor1', $i );
+        //$data = R::load( 'sensor1', $i );
 
-        echo substr($data['time'],0,5).", ".($data['temp']/10)."'";
+
+            //substr($data['time'],0,5).", ".($data['temp']/10)."'";
     }
 
 
     //$data = R::load( 'sensor1', $id );
-
+*/
 
 
 
