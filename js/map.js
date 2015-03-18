@@ -275,15 +275,11 @@ $(window).load(function() {
                         stage.get('.sensor1')[s1].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-<<<<<<< HEAD
                         stage.get('.sensor1')[s1].on('click tap', function(){
                             document.getElementById("btn1").value = "sensor1";
                             document.getElementById("btn2").value = "1";
                             console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
-=======
-                        stage.get('.sensor1')[s1].on('click', function(){
->>>>>>> parent of 979779d... Small changes
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -306,14 +302,10 @@ $(window).load(function() {
                         stage.get('.sensor2')[s2].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-<<<<<<< HEAD
                         stage.get('.sensor2')[s2].on('click tap', function(){
                             document.getElementById("btn1").value = "sensor2";
                             document.getElementById("btn2").value = "1";
                             document.getElementById("fetch").click();
-=======
-                        stage.get('.sensor2')[s2].on('click', function(){
->>>>>>> parent of 979779d... Small changes
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -336,15 +328,11 @@ $(window).load(function() {
                         stage.get('.sensor3')[s3].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-<<<<<<< HEAD
                         stage.get('.sensor3')[s3].on('click tap', function(){
                             document.getElementById("btn1").value = "sensor3";
                             document.getElementById("btn2").value = "1";
                             console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
-=======
-                        stage.get('.sensor3')[s3].on('click', function(){
->>>>>>> parent of 979779d... Small changes
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -367,15 +355,11 @@ $(window).load(function() {
                         stage.get('.sensor4')[s4].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-<<<<<<< HEAD
                         stage.get('.sensor4')[s4].on('click tap', function(){
                             document.getElementById("btn1").value = "sensor4";
                             document.getElementById("btn2").value = "1";
                             console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
-=======
-                        stage.get('.sensor4')[s4].on('click', function(){
->>>>>>> parent of 979779d... Small changes
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -398,15 +382,11 @@ $(window).load(function() {
                         stage.get('.sensor5')[s5].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-<<<<<<< HEAD
                         stage.get('.sensor5')[s5].on('click tap', function(){
                             document.getElementById("btn1").value = "sensor5";
                             document.getElementById("btn2").value = "1";
                             console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
-=======
-                        stage.get('.sensor5')[s5].on('click', function(){
->>>>>>> parent of 979779d... Small changes
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -429,15 +409,11 @@ $(window).load(function() {
                         stage.get('.sensor6')[s6].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-<<<<<<< HEAD
                         stage.get('.sensor6')[s6].on('click tap', function(){
                             document.getElementById("btn1").value = "sensor6";
                             document.getElementById("btn2").value = "1";
                             console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
-=======
-                        stage.get('.sensor6')[s6].on('click', function(){
->>>>>>> parent of 979779d... Small changes
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -457,10 +433,6 @@ $(window).load(function() {
             console.log("Map loading completed");
         }
     });
-<<<<<<< HEAD
 });
-=======
 
 
-});
->>>>>>> parent of 979779d... Small changes

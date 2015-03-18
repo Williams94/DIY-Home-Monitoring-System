@@ -22,7 +22,6 @@ if($action=="sensor1"){
     }
     echo json_encode($data);
 
-<<<<<<< HEAD
 }
 else if($action=="sensor2"){
     if ($type == 1) {
@@ -31,9 +30,6 @@ else if($action=="sensor2"){
     else if ($type == 2) {
         $data = R::getAll('SELECT * FROM `sensor2`  WHERE type=2  ORDER BY id DESC LIMIT 500');
     }
-=======
-    $data = R::getAll( 'SELECT * FROM `sensor1`  WHERE type=1  ORDER BY id DESC LIMIT 500' );
->>>>>>> parent of 979779d... Small changes
 
     echo json_encode($data);
 
@@ -76,7 +72,6 @@ else if($action=="sensor5"){
 }
 else if($action=="sensor6"){
 
-<<<<<<< HEAD
     if ($type == 1) {
         $data = R::getAll('SELECT * FROM `sensor6`  WHERE type=1  ORDER BY id DESC LIMIT 500');
     }
@@ -86,6 +81,3 @@ else if($action=="sensor6"){
 
     echo json_encode($data);
 }
-=======
-    }
->>>>>>> parent of 979779d... Small changes
