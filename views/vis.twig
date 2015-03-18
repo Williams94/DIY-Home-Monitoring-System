@@ -51,7 +51,7 @@
                 style: 'square' // square, circle
             },
             shaded: {
-                orientation: 'top' // top, bottom
+                orientation: 'bottom' // top, bottom
             }
         }});
 
@@ -64,7 +64,7 @@
             style: 'circle' // square, circle
         },
             shaded: {
-                orientation: 'bottom' // top, bottom
+                orientation: 'top' // top, bottom
             }}
     });
 
@@ -73,7 +73,11 @@
         content: names[2],
         className: 'customStyle2',
         options: {
-            style: 'line'
+            style: 'bar',
+            drawPoints: {
+                style: 'circle',
+                size: 10
+            }
         }
     });
 
@@ -89,18 +93,19 @@
         }
     });
 
-/*    groups3.add({
+    groups3.add({
         id: 1,
         content: names[3],
         className: 'customStyle2',
         options: {
-           drawPoints: {
+            style: 'bar',
+            drawPoints: {
                 style: 'circle',
                 size: 10
             }
         }
     });
-*/
+
 
     var container = document.getElementById('visualization');
     var container2 = document.getElementById('visualization2');
@@ -147,7 +152,7 @@
                 ]);
                 dataset3.add([
                     {x: dateTime, y: (movement/10), group: 0},
-//                    {x: dateTime, y: (movement/10), group: 1}
+                    {x: dateTime, y: (movement/10), group: 1}
                 ]);
             }
         }
@@ -162,8 +167,8 @@
         height: '500px',
         defaultGroup: 'ungrouped',
         legend: true,
-        start: '2015-03-16',
-        end: '2015-03-19',
+        start: '2015-03-05',
+        end: '2015-03-15',
         sampling: 'true',
         dataAxis:{
             customRange:{
@@ -179,14 +184,14 @@
     var options2 = {
         height: '500px',
         legend: true,
-        start: '2015-03-16',
-        end: '2015-03-19',
+        start: '2015-03-05',
+        end: '2015-03-15',
         sampling: true,
         dataAxis:{
             customRange:{
                 left:{
                     min: '-10',
-                    max: '200'
+                    max: '500'
                 }
             }
         }
@@ -196,8 +201,8 @@
     var options3 = {
         height: '500px',
         legend: true,
-        start: '2015-03-16',
-        end: '2015-03-19',
+        start: '2015-03-05',
+        end: '2015-03-15',
         sort: false,
         sampling: false,
         style: 'points'

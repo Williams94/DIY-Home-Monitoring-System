@@ -279,7 +279,7 @@ $(window).load(function() {
                         stage.get('.sensor1')[s1].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-                        stage.get('.sensor1')[s1].on('click tap', function(){
+                        stage.get('.sensor1')[s1].on('click', function(){
                             $('#basicModal').modal('toggle');
                         });
                         console.log(stage.get('.sensor1')[s1].attrs['x']);
@@ -303,7 +303,7 @@ $(window).load(function() {
                         stage.get('.sensor2')[s2].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-                        stage.get('.sensor2')[s2].on('click tap', function(){
+                        stage.get('.sensor2')[s2].on('click', function(){
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -326,7 +326,7 @@ $(window).load(function() {
                         stage.get('.sensor3')[s3].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-                        stage.get('.sensor3')[s3].on('click tap', function(){
+                        stage.get('.sensor3')[s3].on('click', function(){
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -349,7 +349,7 @@ $(window).load(function() {
                         stage.get('.sensor4')[s4].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-                        stage.get('.sensor4')[s4].on('click tap', function(){
+                        stage.get('.sensor4')[s4].on('click', function(){
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -372,7 +372,7 @@ $(window).load(function() {
                         stage.get('.sensor5')[s5].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-                        stage.get('.sensor5')[s5].on('click tap', function(){
+                        stage.get('.sensor5')[s5].on('click', function(){
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
@@ -395,7 +395,7 @@ $(window).load(function() {
                         stage.get('.sensor6')[s6].on('mouseout', function() {
                             document.body.style.cursor = 'default';
                         });
-                        stage.get('.sensor6')[s6].on('click tap', function(){
+                        stage.get('.sensor6')[s6].on('click', function(){
                             $('#basicModal').modal('toggle');
                         });
                         stage.draw();
