@@ -10,32 +10,74 @@ include '../dblogin.php';
 
 
 $action = $_POST["action"];
+$type = $_POST["type"];
 
-if($action=="gettemp"){
+if($action=="sensor1"){
 
+    if ($type == "1") {
+        $data = R::getAll('SELECT * FROM `sensor1`  WHERE type=1  ORDER BY id DESC LIMIT 500');
+    }
+    else if ($type == "2") {
+        $data = R::getAll('SELECT * FROM `sensor1`  WHERE type=2  ORDER BY id DESC LIMIT 500');
+    }
+    echo json_encode($data);
 
-
-
-    $data = R::getAll( 'SELECT * FROM `sensor1`  WHERE type=1  ORDER BY id DESC LIMIT 800' );
+}
+else if($action=="sensor2"){
+    if ($type == 1) {
+        $data = R::getAll('SELECT * FROM `sensor2`  WHERE type=1  ORDER BY id DESC LIMIT 500');
+    }
+    else if ($type == 2) {
+        $data = R::getAll('SELECT * FROM `sensor2`  WHERE type=2  ORDER BY id DESC LIMIT 500');
+    }
 
     echo json_encode($data);
 
-    /*
-    for ($i = 4; $i < 100; $i++){
-        //$data = R::load( 'sensor1', $i );
+}
+else if($action=="sensor3"){
 
-
-            //substr($data['time'],0,5).", ".($data['temp']/10)."'";
+    if ($type == 1) {
+        $data = R::getAll('SELECT * FROM `sensor3`  WHERE type=1  ORDER BY id DESC LIMIT 500');
+    }
+    else if ($type == 2) {
+        $data = R::getAll('SELECT * FROM `sensor3`  WHERE type=2  ORDER BY id DESC LIMIT 500');
     }
 
+    echo json_encode($data);
 
-    //$data = R::load( 'sensor1', $id );
-*/
+}
+else if($action=="sensor4"){
 
-
-
-
-    //print_r();
-
-
+    if ($type == 1) {
+        $data = R::getAll('SELECT * FROM `sensor4`  WHERE type=1  ORDER BY id DESC LIMIT 500');
     }
+    else if ($type == 2) {
+        $data = R::getAll('SELECT * FROM `sensor4`  WHERE type=2  ORDER BY id DESC LIMIT 500');
+    }
+
+    echo json_encode($data);
+
+}
+else if($action=="sensor5"){
+
+    if ($type == 1) {
+        $data = R::getAll('SELECT * FROM `sensor5`  WHERE type=1  ORDER BY id DESC LIMIT 500');
+    }
+    else if ($type == 2) {
+        $data = R::getAll('SELECT * FROM `sensor5`  WHERE type=2  ORDER BY id DESC LIMIT 500');
+    }
+
+    echo json_encode($data);
+
+}
+else if($action=="sensor6"){
+
+    if ($type == 1) {
+        $data = R::getAll('SELECT * FROM `sensor6`  WHERE type=1  ORDER BY id DESC LIMIT 500');
+    }
+    else if ($type == 2) {
+        $data = R::getAll('SELECT * FROM `sensor6`  WHERE type=2  ORDER BY id DESC LIMIT 500');
+    }
+
+    echo json_encode($data);
+}
