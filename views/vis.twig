@@ -51,7 +51,7 @@
                 style: 'square' // square, circle
             },
             shaded: {
-                orientation: 'top' // top, bottom
+                orientation: 'bottom' // top, bottom
             }
         }});
 
@@ -64,7 +64,7 @@
             style: 'circle' // square, circle
         },
             shaded: {
-                orientation: 'bottom' // top, bottom
+                orientation: 'top' // top, bottom
             }}
     });
 
@@ -73,7 +73,11 @@
         content: names[2],
         className: 'customStyle2',
         options: {
-            style: 'line'
+            style: 'bar',
+            drawPoints: {
+                style: 'circle',
+                size: 10
+            }
         }
     });
 
@@ -89,18 +93,19 @@
         }
     });
 
-/*    groups3.add({
+    groups3.add({
         id: 1,
         content: names[3],
         className: 'customStyle2',
         options: {
-           drawPoints: {
+            style: 'bar',
+            drawPoints: {
                 style: 'circle',
                 size: 10
             }
         }
     });
-*/
+
 
     var container = document.getElementById('visualization');
     var container2 = document.getElementById('visualization2');
@@ -138,7 +143,32 @@ function fetch(){
         success: function (data) {
             packets = JSON.parse(data);
             console.log(packets.length);
+<<<<<<< HEAD
             dataSet();
+=======
+            for (var i = 0; i < packets.length; i++){
+                var temp = packets[i]['temp']/10;
+                var humidity = Math.round(packets[i]['humidity']);
+                var light = packets[i]['light'];
+                var movement = packets[i]['pi_renergy'];
+                var date = packets[i]['date'].replace(/\//g, "-");
+                var time = packets[i]['time'];
+                var dateTime = date + " " + time;
+
+                dataset.add([
+                     {x: dateTime, y: humidity, group: 0},
+                     {x: dateTime, y: temp, group: 1}
+                   //{x: dateTime, y: movement, group: 3}
+                ]);
+                dataset2.add([
+                    {x: dateTime, y: light, group: 0}
+                ]);
+                dataset3.add([
+                    {x: dateTime, y: (movement/10), group: 0},
+                    {x: dateTime, y: (movement/10), group: 1}
+                ]);
+            }
+>>>>>>> parent of 979779d... Small changes
         }
 
     });
@@ -177,8 +207,8 @@ function fetch(){
         height: '500px',
         defaultGroup: 'ungrouped',
         legend: true,
-        start: '2015-03-16',
-        end: '2015-03-19',
+        start: '2015-03-05',
+        end: '2015-03-15',
         sampling: 'true',
         dataAxis:{
             customRange:{
@@ -194,14 +224,14 @@ function fetch(){
     var options2 = {
         height: '500px',
         legend: true,
-        start: '2015-03-16',
-        end: '2015-03-19',
+        start: '2015-03-05',
+        end: '2015-03-15',
         sampling: true,
         dataAxis:{
             customRange:{
                 left:{
                     min: '-10',
-                    max: '200'
+                    max: '500'
                 }
             }
         }
@@ -211,8 +241,8 @@ function fetch(){
     var options3 = {
         height: '500px',
         legend: true,
-        start: '2015-03-16',
-        end: '2015-03-19',
+        start: '2015-03-05',
+        end: '2015-03-15',
         sort: false,
         sampling: false,
         style: 'points'
