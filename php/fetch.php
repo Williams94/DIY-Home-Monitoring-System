@@ -16,7 +16,7 @@ if($action=="gettemp"){
 
 
 
-    $data = R::getAll( 'SELECT * FROM `sensor1`  WHERE type=1  ORDER BY id DESC LIMIT 500' );
+    $data = R::getAll( 'SELECT * FROM `sensor1`  WHERE type=1  ORDER BY id DESC LIMIT 800' );
 
     echo json_encode($data);
 
