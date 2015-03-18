@@ -121,43 +121,58 @@
 
     var packets;
 
+
+
+function fetch(){
+    console.log(dataset.length);
+    dataset.clear();
+    console.log(dataset.length);
+    var sensor = document.getElementById("btn1").value;
+    var type = document.getElementById("btn2").value;
+    console.log( sensor + " " + type);
     $.ajax({
         url: "php/fetch.php",
 
         type: "POST",
 
-        data: {action: 'gettemp'},
+        data: {
+            action: sensor,
+            type: type},
 
 
         success: function (data) {
-
             packets = JSON.parse(data);
             console.log(packets.length);
-            for (var i = 0; i < packets.length; i++){
-                var temp = packets[i]['temp']/10;
-                var humidity = Math.round(packets[i]['humidity']);
-                var light = packets[i]['light'];
-                var movement = packets[i]['pi_renergy'];
-                var date = packets[i]['date'].replace(/\//g, "-");
-                var time = packets[i]['time'];
-                var dateTime = date + " " + time;
-
-                dataset.add([
-                     {x: dateTime, y: humidity, group: 0},
-                     {x: dateTime, y: temp, group: 1}
-                   //{x: dateTime, y: movement, group: 3}
-                ]);
-                dataset2.add([
-                    {x: dateTime, y: light, group: 0}
-                ]);
-                dataset3.add([
-                    {x: dateTime, y: (movement/10), group: 0},
-                    {x: dateTime, y: (movement/10), group: 1}
-                ]);
-            }
+            dataSet();
         }
 
     });
+}
+    function dataSet(){
+        for (var i = 0; i < packets.length; i++){
+            var temp = packets[i]['temp']/10;
+            var humidity = Math.round(packets[i]['humidity']);
+            var light = packets[i]['light'];
+            var movement = packets[i]['pi_renergy'];
+            var date = packets[i]['date'].replace(/\//g, "-");
+            var time = packets[i]['time'];
+            var dateTime = date + " " + time;
+
+            dataset.add([
+                {x: dateTime, y: humidity, group: 0},
+                {x: dateTime, y: temp, group: 1}
+                //{x: dateTime, y: movement, group: 3}
+            ]);
+            dataset2.add([
+                {x: dateTime, y: light, group: 0}
+            ]);
+            dataset3.add([
+                {x: dateTime, y: (movement/10), group: 0},
+                {x: dateTime, y: (movement/10), group: 1}
+            ]);
+        }
+    }
+
 
 
 
