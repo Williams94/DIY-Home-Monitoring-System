@@ -24,7 +24,6 @@ if($action=="sensor1"){
 
 }
 else if($action=="sensor2"){
-
     if ($type == 1) {
         $data = R::getAll('SELECT * FROM `sensor2`  WHERE type=1  ORDER BY id DESC LIMIT 500');
     }
@@ -81,5 +80,4 @@ else if($action=="sensor6"){
     }
 
     echo json_encode($data);
-
 }
