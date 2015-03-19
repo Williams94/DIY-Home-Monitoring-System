@@ -173,17 +173,15 @@ function fetch(){
         }
     }
 
-
-
-
-
+    var startDate = moment().subtract(2, 'days').format('YYYY-MM-DD');
+    var endDate = moment().add(1, 'days').format('YYYY-MM-DD');
 
     var options = {
         height: '500px',
         defaultGroup: 'ungrouped',
         legend: true,
-        start: '2015-03-05',
-        end: '2015-03-15',
+        start: startDate,
+        end: endDate,
         sampling: 'true',
         dataAxis:{
             customRange:{
@@ -199,8 +197,8 @@ function fetch(){
     var options2 = {
         height: '500px',
         legend: true,
-        start: '2015-03-05',
-        end: '2015-03-15',
+        start: startDate,
+        end: endDate,
         sampling: true,
         dataAxis:{
             customRange:{
@@ -216,8 +214,8 @@ function fetch(){
     var options3 = {
         height: '500px',
         legend: true,
-        start: '2015-03-05',
-        end: '2015-03-15',
+        start: startDate,
+        end: endDate,
         sort: false,
         sampling: false,
         style: 'points'
