@@ -143,32 +143,7 @@ function fetch(){
         success: function (data) {
             packets = JSON.parse(data);
             console.log(packets.length);
-<<<<<<< HEAD
             dataSet();
-=======
-            for (var i = 0; i < packets.length; i++){
-                var temp = packets[i]['temp']/10;
-                var humidity = Math.round(packets[i]['humidity']);
-                var light = packets[i]['light'];
-                var movement = packets[i]['pi_renergy'];
-                var date = packets[i]['date'].replace(/\//g, "-");
-                var time = packets[i]['time'];
-                var dateTime = date + " " + time;
-
-                dataset.add([
-                     {x: dateTime, y: humidity, group: 0},
-                     {x: dateTime, y: temp, group: 1}
-                   //{x: dateTime, y: movement, group: 3}
-                ]);
-                dataset2.add([
-                    {x: dateTime, y: light, group: 0}
-                ]);
-                dataset3.add([
-                    {x: dateTime, y: (movement/10), group: 0},
-                    {x: dateTime, y: (movement/10), group: 1}
-                ]);
-            }
->>>>>>> parent of 979779d... Small changes
         }
 
     });
