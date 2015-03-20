@@ -26,11 +26,14 @@ if ($data[2] == "42C7645F"){
     $sensor1->temp = $data[9];
     $sensor1->light = $data[10];
     $sensor1->PIRcount = $data[11];
+
+    $pir =
+
     $sensor1->PIRenergy = $data[12];
     $sensor1->switch = $data[13];
 
     $id = R::store($sensor1);
-    echo $data[2] + " Data Received";
+    echo $data[2];
 }
 if ($data[2] == "4214EDAC"){
      //Sensor 2
@@ -51,7 +54,7 @@ if ($data[2] == "4214EDAC"){
     $sensor2->switch = $data[13];
 
     $id = R::store($sensor2);
-    echo $data[2] + " Data Received";
+    echo $data[2];
 }
 if ($data[2] == "425EFE31"){
      //Sensor 3
@@ -72,7 +75,7 @@ if ($data[2] == "425EFE31"){
     $sensor3->switch = $data[13];
 
     $id = R::store($sensor3);
-    echo $data[2] + " Data Received";
+    echo $data[2];
 }
  if ($data[2] == "42FDEFA0"){
     //Sensor 4
@@ -93,7 +96,7 @@ if ($data[2] == "425EFE31"){
     $sensor4->switch = $data[13];
 
     $id = R::store($sensor4);
-    echo $data[2] + " Data Received";
+    echo $data[2];
 }
 if ($data[2] == "421F8331"){
      //Sensor 5
@@ -114,7 +117,7 @@ if ($data[2] == "421F8331"){
     $sensor5->switch = $data[13];
 
     $id = R::store($sensor5);
-    echo $data[2] + " Data Received";
+    echo $data[2];
 }
 if ($data[2] == "42679E2B"){
     //Sensor 6
@@ -135,7 +138,7 @@ if ($data[2] == "42679E2B"){
     $sensor6->switch = $data[13];
 
     $id = R::store($sensor6);
-    echo $data[2] + " Data Received";
+    echo $data[2];
 }
 ?>
 

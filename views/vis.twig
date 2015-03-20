@@ -73,10 +73,11 @@
         content: names[2],
         className: 'customStyle2',
         options: {
-            style: 'bar',
             drawPoints: {
-                style: 'circle',
-                size: 10
+                style: 'circle' // square, circle
+            },
+            shaded: {
+                orientation: 'top' // top, bottom
             }
         }
     });
@@ -85,26 +86,9 @@
         id: 0,
         content: names[3],
         className: 'customStyle4',
-        options: {
-            drawPoints: {
-                style: 'circle',
-                size: 10
-            }
-        }
+        options: { drawPoints: false }
     });
 
-    groups3.add({
-        id: 1,
-        content: names[3],
-        className: 'customStyle2',
-        options: {
-            style: 'bar',
-            drawPoints: {
-                style: 'circle',
-                size: 10
-            }
-        }
-    });
 
 
     var container = document.getElementById('visualization');
@@ -158,18 +142,30 @@ function fetch(){
             var time = packets[i]['time'];
             var dateTime = date + " " + time;
 
+            var thisTime = new Date(packets[i]['date'] + " " + time);
+            var lastTime = new Date(packets[i+1]['date'] + " " + packets[i+1]['time']);
+            //console.log("Current: " +thisTime + " Last: " + lastTime + " Diff: " + (thisTime-lastTime)/1000);
+
+            var thisEnergy = packets[i]['pi_renergy'];
+            var lastEnergy = packets[i+1]['pi_renergy'];
+            //console.log("Current eng: " + thisEnergy + " Last eng: " + lastEnergy);
+
+            var energyDiff = (thisEnergy - lastEnergy)/(thisTime-lastTime);
+
+
             dataset.add([
                 {x: dateTime, y: humidity, group: 0},
                 {x: dateTime, y: temp, group: 1}
-                //{x: dateTime, y: movement, group: 3}
             ]);
             dataset2.add([
                 {x: dateTime, y: light, group: 0}
             ]);
-            dataset3.add([
-                {x: dateTime, y: (movement/10), group: 0},
-                {x: dateTime, y: (movement/10), group: 1}
-            ]);
+            if (energyDiff>0 && energyDiff < 9999) {
+                console.log(Math.round(energyDiff));
+                dataset3.add([
+                    {x: dateTime, y: Math.round(energyDiff), group: 0}
+                ]);
+            }
         }
     }
 
@@ -217,8 +213,14 @@ function fetch(){
         start: startDate,
         end: endDate,
         sort: false,
-        sampling: false,
-        style: 'points'
+        dataAxis:{
+            customRange:{
+                left:{
+                    min: '-5',
+                    max: '100'
+                }
+            }
+        }
     };
 
     var graph2d = new vis.Graph2d(container, dataset, groups, options);
