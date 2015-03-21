@@ -13,9 +13,7 @@
         className: 'customStyle1',
         options: {
             yAxisOrientation: 'right',
-            drawPoints: {
-                style: 'square' // square, circle
-            },
+            drawPoints: false,
             shaded: {
                 orientation: 'bottom' // top, bottom
             }
@@ -26,9 +24,7 @@
         content: names[1],
         className: 'customStyle3',
         options: {
-            drawPoints: {
-                style: 'circle' // square, circle
-            },
+            drawPoints: false,
             shaded: {
                 orientation: 'top' // top, bottom
             }}
@@ -39,9 +35,7 @@
         content: names[2],
         className: 'customStyle2',
         options: {
-            drawPoints: {
-                style: 'circle' // square, circle
-            },
+            drawPoints: false,
             shaded: {
                 orientation: 'top' // top, bottom
             }
