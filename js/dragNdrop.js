@@ -2,6 +2,7 @@
 // hide the icon until its image has loaded
 $(window).load(function() {
 
+
     function update(activeAnchor) {
 
         var group = activeAnchor.getParent();
@@ -446,6 +447,8 @@ $(window).load(function() {
     $("#save").click( function(){
         var name = $('#name').val();
 
+        NProgress.start();
+
         json = stage.toJSON();
 
         // Using the core $.ajax() method
@@ -460,6 +463,7 @@ $(window).load(function() {
             // contentType: "application/json",
 
             success: function( json ) {
+                NProgress.inc();
                 console.log(json);
                 bootbox.dialog({
                     message: "<h3>"+name + " map saved!</h3>",
@@ -482,7 +486,9 @@ $(window).load(function() {
 
                         "Keep editing": {
                             className: "btn-primary",
-                            callback: function() {}
+                            callback: function() {
+                                NProgress.done();
+                            }
                         },
 
                         success: {
@@ -492,6 +498,7 @@ $(window).load(function() {
                             className: "btn-success",
 
                             callback: function() {
+                                NProgress.done();
                                 window.location.href = "sensors.php";
                             }
                         }
@@ -510,7 +517,7 @@ $(window).load(function() {
             },
 
             complete: function( xhr, status ) {
-
+                NProgress.done();
             }
         });
 
@@ -522,7 +529,6 @@ $(window).load(function() {
     // add the layer to the stage
     stage.add(layer);
 
-/*
     // Scale for window resize
     var initialScale = stage.scale();
     var initialWidth = $(window).width(); // initial width
@@ -548,7 +554,6 @@ $(window).load(function() {
         $stageContainer.height(h*yScale);
 
     }
-*/
 
 
 });

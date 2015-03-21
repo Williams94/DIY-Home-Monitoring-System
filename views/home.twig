@@ -26,14 +26,15 @@
 
 {% block header %}
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="header">
                 <h1>Home</h1>
             </div>
         </div>
-        <div class="col-md-2">
-            <a href="./edit.php"><button type="button" class="btn btn-primary btn-lg" id="edit" data-loading-text="Loading...">Edit</button></a>
-            <a href="./build.php"><button type="button" class="btn btn-primary btn-success" id="new" data-loading-text="Loading...">New Map</button></a>
+        <div id="buttons" class="col-md-4">
+            <a href="./sensors.php"><button type="button" class="btn btn-success btn-lg" id="sensors" data-loading-text="Loading...">Sensors</button></a>
+            <a href="./edit.php"><button type="button" class="btn btn-success btn-lg" id="edit" data-loading-text="Loading...">Edit</button></a>
+            <a href="./build.php"><button type="button" class="btn btn-success btn-lg" id="new" data-loading-text="Loading...">New Map</button></a>
         </div>
     </div>
 {% endblock header %}

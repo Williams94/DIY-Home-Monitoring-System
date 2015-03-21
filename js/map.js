@@ -1,9 +1,12 @@
 /**
  * Created by Ross on 17/02/2015.
  */
+
 document.getElementById('btn1').style.visibility = 'hidden';
 document.getElementById('btn2').style.visibility = 'hidden';
 $(window).load(function() {
+
+    NProgress.start();
 
 
 
@@ -15,6 +18,8 @@ $(window).load(function() {
     var json;
     var json2;
 
+    NProgress.inc();
+
     $.ajax({
         url: "php/get.php",
 
@@ -25,6 +30,7 @@ $(window).load(function() {
 
 
         success: function (data) {
+            NProgress.inc();
             json = JSON.parse(data);
             //edit = json.edit;
 
@@ -146,7 +152,7 @@ $(window).load(function() {
             var s5 = 0;
             var s6 =0;
             images.each(function (image) {
-
+                NProgress.inc();
                 if (image.attrs['id'] == "bed") {
 
                     var imageObj = new Image();
@@ -276,11 +282,12 @@ $(window).load(function() {
                             document.body.style.cursor = 'default';
                         });
                         stage.get('.sensor1')[s1].on('click tap', function(){
+                            NProgress.start();
                             document.getElementById("btn1").value = "sensor1";
                             document.getElementById("btn2").value = "1";
-                            console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
                             $('#basicModal').modal('toggle');
+                            NProgress.done();
                         });
                         stage.draw();
                         s1++;
@@ -303,10 +310,12 @@ $(window).load(function() {
                             document.body.style.cursor = 'default';
                         });
                         stage.get('.sensor2')[s2].on('click tap', function(){
+                            NProgress.start();
                             document.getElementById("btn1").value = "sensor2";
                             document.getElementById("btn2").value = "1";
                             document.getElementById("fetch").click();
                             $('#basicModal').modal('toggle');
+                            NProgress.done();
                         });
                         stage.draw();
                         s2++;
@@ -329,11 +338,12 @@ $(window).load(function() {
                             document.body.style.cursor = 'default';
                         });
                         stage.get('.sensor3')[s3].on('click tap', function(){
+                            NProgress.start();
                             document.getElementById("btn1").value = "sensor3";
                             document.getElementById("btn2").value = "1";
-                            console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
                             $('#basicModal').modal('toggle');
+                            NProgress.done();
                         });
                         stage.draw();
                         s3++;
@@ -356,11 +366,12 @@ $(window).load(function() {
                             document.body.style.cursor = 'default';
                         });
                         stage.get('.sensor4')[s4].on('click tap', function(){
+                            NProgress.start();
                             document.getElementById("btn1").value = "sensor4";
                             document.getElementById("btn2").value = "1";
-                            console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
                             $('#basicModal').modal('toggle');
+                            NProgress.done();
                         });
                         stage.draw();
                         s4++;
@@ -383,11 +394,12 @@ $(window).load(function() {
                             document.body.style.cursor = 'default';
                         });
                         stage.get('.sensor5')[s5].on('click tap', function(){
+                            NProgress.start();
                             document.getElementById("btn1").value = "sensor5";
                             document.getElementById("btn2").value = "1";
-                            console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
                             $('#basicModal').modal('toggle');
+                            NProgress.done();
                         });
                         stage.draw();
                         s5++;
@@ -410,11 +422,12 @@ $(window).load(function() {
                             document.body.style.cursor = 'default';
                         });
                         stage.get('.sensor6')[s6].on('click tap', function(){
+                            NProgress.start();
                             document.getElementById("btn1").value = "sensor6";
                             document.getElementById("btn2").value = "1";
-                            console.log( document.getElementById("btn1").value + " " + document.getElementById("btn2").value);
                             document.getElementById("fetch").click();
                             $('#basicModal').modal('toggle');
+                            NProgress.done();
                         });
                         stage.draw();
                         s6++;
@@ -427,6 +440,7 @@ $(window).load(function() {
 
 
             stage.draw();
+            NProgress.done();
         },
 
         complete: function() {
