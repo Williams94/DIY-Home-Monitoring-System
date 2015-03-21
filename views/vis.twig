@@ -150,7 +150,7 @@ function fetch(){
             var lastEnergy = packets[i+1]['pi_renergy'];
             console.log("Current eng: " + thisEnergy + " Last eng: " + lastEnergy);
 
-            var energyDiff = (thisEnergy - lastEnergy)/(thisTime-lastTime);
+            var energyDiff = (thisEnergy - lastEnergy)/((thisTime-lastTime)/1000);
 
 
             dataset.add([
@@ -169,7 +169,7 @@ function fetch(){
         }
     }
 
-    var startDate = moment().subtract(2, 'days').format('YYYY-MM-DD');
+    var startDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
     var endDate = moment().add(1, 'days').format('YYYY-MM-DD');
 
     var options = {
