@@ -1,4 +1,5 @@
 var stage;
+var layer;
 var name;
 
 $(window).load(function() {
@@ -248,7 +249,7 @@ function dragNdrop(stage, name){
         }
 
 
-        var layer = stage.getLayers()[0];
+        layer = stage.getLayers()[0];
 
         stage.add(layer);
 
@@ -336,6 +337,7 @@ function dragNdrop(stage, name){
                             sensor.moveToTop();
                             layer.draw();
                         });
+
                         layer.add(sensor);
 
                     }
@@ -372,6 +374,7 @@ function dragNdrop(stage, name){
 
 
     $("#save").click( function() {
+        NProgress.start();
         json = stage.toJSON();
         bootbox.dialog({
 
@@ -406,7 +409,7 @@ function dragNdrop(stage, name){
                     className: "btn-success",
 
                     callback: function() {
-
+                        NProgress.inc();
 
 
                         // Using the core $.ajax() method
@@ -421,6 +424,7 @@ function dragNdrop(stage, name){
                             // contentType: "application/json",
 
                             success: function (json) {
+                                NProgress.done();
                                 window.location.href = "./index.php";
                             },
 
