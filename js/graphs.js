@@ -110,7 +110,7 @@
             var lastEnergy = packets[i+1]['pi_renergy'];
             console.log("Current eng: " + thisEnergy + " Last eng: " + lastEnergy);
 
-            var energyDiff = (thisEnergy - lastEnergy)/(thisTime-lastTime);
+            var energyDiff = (thisEnergy - lastEnergy)/((thisTime-lastTime)/1000);
 
 
             dataset.add([
