@@ -40,8 +40,9 @@ $(window).load(function() {
             //console.log(json);
 
             if (json == null){
+                NProgress.done();
                 bootbox.dialog({
-                    message: "<div class='jumbotron'>\
+                    message: "<div class='jumbotron container'>\
                     <h1>Welcome!</h1>\
                     <p>To create a new map please click New Map</p>\
                     <p>Or if you've already created your map, place your sensors by click Sensors</p>\
