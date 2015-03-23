@@ -97,9 +97,21 @@ $(window).load(function() {
         });
 
 
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    console.log("Window width: " + w + " Window height: " + h);
+
     // Sets the width and height of the canvas
     var width = document.getElementById('container').clientWidth;
-    var height = 450;
+    var height;
+    if (h>700){
+        height = 550;
+    } else if(h<700 && h>500){
+        height = 425;
+    } else if ( h<500){
+        height = 350;
+    }
+
 
     var json;
 
@@ -140,7 +152,7 @@ $(window).load(function() {
             $house.data("class", document.getElementsByClassName("imageToDrag")[i].id);
         })();
     }
-    console.log(height);
+
     // create the Konva.Stage and layer
     var stage = new Konva.Stage({
         container: 'container',
