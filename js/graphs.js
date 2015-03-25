@@ -1,6 +1,7 @@
 /**
  * Created by Ross on 20/03/2015.
  */
+    NProgress.start();
     // create a dataSet with groups
     var names = ['Humidity', 'Temperature', 'Light', 'Movement'];
     var groups = new vis.DataSet();
@@ -65,7 +66,7 @@
 
     var packets;
 
-
+    NProgress.inc();
 
     function fetch(){
         dataset.clear();
@@ -85,9 +86,11 @@
 
 
             success: function (data) {
+                NProgress.inc();
                 packets = JSON.parse(data);
                 console.log(packets.length);
                 dataSet();
+                NProgress.done();
             }
 
         });
@@ -143,7 +146,7 @@
             customRange:{
                 left:{
                     min: '5',
-                    max: '25'
+                    max: '35'
                 }
             }
         }
@@ -160,7 +163,7 @@
             customRange:{
                 left:{
                     min: '-10',
-                    max: '500'
+                    max: '600'
                 }
             }
         }
@@ -176,8 +179,8 @@
         dataAxis:{
             customRange:{
                 left:{
-                    min: '-5',
-                    max: '100'
+                    min: '0',
+                    max: '70'
                 }
             }
         }
