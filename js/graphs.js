@@ -86,11 +86,10 @@
 
 
             success: function (data) {
-                NProgress.inc();
+                NProgress.done();
                 packets = JSON.parse(data);
                 console.log(packets.length);
                 dataSet();
-                NProgress.done();
             }
 
         });
@@ -180,7 +179,7 @@
             customRange:{
                 left:{
                     min: '0',
-                    max: '70'
+                    max: '90'
                 }
             }
         }
