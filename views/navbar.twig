@@ -13,18 +13,91 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/Drag-and-drop/">Home <span class="glyphicon glyphicon-home"></span></a></li>
-                        <li><a href="#">Help <span class="glyphicon glyphicon-info-sign"></span></a></li>
+                        <li><a href="#" id="help" data-toggle="modal" data-target="#helpModal">Help <span class="glyphicon glyphicon-info-sign"></span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="glyphicon glyphicon-cog"></span><span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+
+<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="myModalLabel">Help</h2>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Building</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Placing sensors</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Viewing data</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div role="tabpanel">
+
+
+
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <h3>Building your first map</h3>
+                            <p>To build your first map click on the button  <button class="btn btn-success">New Map</button>  from the home page.</p>
+                            <h4>Drag and Drop</h4>
+                            <p>Here on the build page you can drag and drop shapes of rooms and icons from the tool bar above the canvas.</p>
+                            <h4>Resize</h4>
+                            <p>You can resize the rectangle by clicking on the circles in each of the corners and moving them in the direction
+                            you want it re-sized to.</p>
+                            <h4>Reordering</h4>
+                            <p>To bring an icon to the top of the canvas you need to select that icon by clicking it and then click it again to bring it above
+                                all other icons. Be careful because if you do this on a rectangle with other icons placed on top these icons will disappear below the rectangle.
+                            </p>
+                            <h4>Deleting</h4>
+                            <p>To remove an icon from the canvas, first select it and then double click to remove the icon</p>
+                            <h4>Saving</h4>
+                            <p>Finally once you are happy with your new map give it a name by typing it into the box <input type='text'placeholder='House name here...'>
+                                then you can save it by clicking <button class="btn btn-success">Save</button></p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <h3>Placing the sensors</h3>
+                            <p>Place your sensors either by clicking  <button class="btn btn-success">New Map</button>  on the home page or by building a new map
+                            and flowing the help instructions in the building tab.</p>
+                            <h4>Removing a sensor</h4>
+                            <p>To remove a sensor from the map just select it and double click to remove it the same way as with the icons when building your map.</p>
+                            <h4>Notes</h4>
+                            <p>Only one sensor can be placed at one time that is why when you add a sensor to the map in the toolbar the icon is faded out.
+                            If you delete the sensor from the map then it will reappear in the toolbar.</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">
+                            <h3>Viewing Sensor Data</h3>
+                            <p>Once you have placed the sensors on your map and around your home making sure that they are in the same rooms as on
+                            your map, you can view the data from that sensor by clicking the sensor.</p>
+                            <h3>Graphs</h3>
+                            <p>Once you have clicked a sensor it might take a little while to load the data if there has been lots of data recorder, so please
+                            be patient when it is loading. Once it has loaded you can switch between different views of data in the tabs. To see a smaller scale
+                            of time you can scroll on the map to zoom in, if you drag the graph left or right it will move backwards or forwards in time.</p>
+                            <h3>Temp & Humidity</h3>
+                            <p>This graphs displays the temperature in degrees celsius on the left y axis and humidity is on the right y axis and is measured by percentage.</p>
+                            <h3>Light</h3>
+                            <p>Here only light measured in lux is displayed on this graph. Up to 50lux is roughly the same lighting within a family living room, 100lux is an overcast
+                            day and 400lux is sunrise or sunset on a clear day. <a href="http://en.wikipedia.org/wiki/Lux">Lux on Wikipedia.</a></p>
+                            <h3>Movement</h3>
+                            <p>Movement is measured in PIR and the value calculated is is compared to the last PIR value divided by time and can give you an accurate representation
+                            of people (or pets) moving throughout the home.</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
