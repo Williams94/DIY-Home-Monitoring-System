@@ -86,11 +86,10 @@
 
 
             success: function (data) {
-                NProgress.inc();
+                NProgress.done();
                 packets = JSON.parse(data);
                 console.log(packets.length);
                 dataSet();
-                NProgress.done();
             }
 
         });
