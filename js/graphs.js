@@ -86,11 +86,11 @@
 
 
             success: function (data) {
-                NProgress.done();
+                NProgress.inc();
                 packets = JSON.parse(data);
                 console.log(packets.length);
                 dataSet();
-
+                NProgress.done();
             }
 
         });
@@ -132,7 +132,7 @@
         }
     }
 
-    var startDate = moment().subtract(2, 'days').format('YYYY-MM-DD');
+    var startDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
     var endDate = moment().add(1, 'days').format('YYYY-MM-DD');
 
     var options = {
@@ -185,6 +185,7 @@
             }
         }
     };
+
 
     var graph2d = new vis.Graph2d(container, dataset, groups, options);
     var graph2d2 = new vis.Graph2d(container2, dataset2, groups2, options2);
