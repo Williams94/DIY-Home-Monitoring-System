@@ -180,7 +180,7 @@
             customRange:{
                 left:{
                     min: '0',
-                    max: '70'
+                    max: '90'
                 }
             }
         }
