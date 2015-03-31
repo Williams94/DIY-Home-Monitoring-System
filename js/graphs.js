@@ -74,7 +74,7 @@
         dataset3.clear();
         var sensor = document.getElementById("btn1").value;
         var type = document.getElementById("btn2").value;
-        console.log( sensor + " " + type);
+        //console.log( sensor + " " + type);
         $.ajax({
             url: "php/fetch.php",
 
@@ -88,7 +88,7 @@
             success: function (data) {
                 NProgress.done();
                 packets = JSON.parse(data);
-                console.log(packets.length);
+                //console.log(packets.length);
                 dataSet();
             }
 
@@ -106,11 +106,11 @@
 
             var thisTime = new Date(packets[i]['date'] + " " + time);
             var lastTime = new Date(packets[i+1]['date'] + " " + packets[i+1]['time']);
-            console.log("Current: " +thisTime + " Last: " + lastTime + " Diff: " + (thisTime-lastTime)/1000);
+            //console.log("Current: " +thisTime + " Last: " + lastTime + " Diff: " + (thisTime-lastTime)/1000);
 
             var thisEnergy = packets[i]['pi_renergy'];
             var lastEnergy = packets[i+1]['pi_renergy'];
-            console.log("Current eng: " + thisEnergy + " Last eng: " + lastEnergy);
+            //console.log("Current eng: " + thisEnergy + " Last eng: " + lastEnergy);
 
             var energyDiff = (thisEnergy - lastEnergy)/((thisTime-lastTime)/1000);
 
@@ -123,7 +123,7 @@
                 {x: dateTime, y: light, group: 0}
             ]);
             if (energyDiff>0 && energyDiff < 9999) {
-                console.log(Math.round(energyDiff));
+                //console.log(Math.round(energyDiff));
                 dataset3.add([
                     {x: dateTime, y: Math.round(energyDiff), group: 0}
                 ]);
